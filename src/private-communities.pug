@@ -1,0 +1,209 @@
+extends templates/layout.pug
+
+block variables
+  //- Setting body_class changes the overall color of the page
+  //- body_class options: 'category-support', 'category-experience', 'category-understand', 'category-start'
+  - var body_class = 'category-support theme__support'
+
+block title
+  title Private communities
+
+block sub-page-content
+  .row.heading
+    .medium-8.columns.medium-centered.text-center.white
+      h6 Help students feel more supported
+      h1 Private communities
+
+  section.container
+    .category.category__padded
+      figure
+        img(src='assets/img/screenshots/Top-Private-communities.png')
+      p.copy.copy__large A private community helps students quickly and easily connect with course peers and faculty. The community lets students see who else is online and provides a modern, familiar, and private way to connect casually to ask questions, discuss course material, and feel supported.
+      blockquote I found myself wanting to use Google Hangouts in my other courses. I was able to reassure students at the beginning of the course that they can be successful going back to school online.
+      .copy.copy__citation
+        p
+          | Instructor, The Richard W. Riley College of Education and Leadership
+          br
+          | Walden University
+
+  section.bar-section
+    .bar-section--header
+      .container
+        h3.bar-section--header--text.text-center Process overview
+    .container
+      .category.category__padded.category__post-header
+        .wysiwyg
+          h4 Considerations for implementation
+          p The purpose of private communities is to help students feel more supported in their learning by connecting them to other students in their class and their faculty. It's important to emphasize the benefits and potential uses of the private community to faculty and students, because that will make a big difference in utilization. Courses that have other chat tools available still find value in private community chat when the intended purpose is clearly communicated.
+          p There are many online chat tools one might use to support a private community, including Slack or Google Hangouts. The platform or tool used is less important then setting the right expectation with faculty and students about how they can use it, so use whatever chat tool is best for your institution or class, based on existing accounts and policies. Key features to include are a tool that 1) identifies user presence (ie, who's online when I am?) and 2) allows chat with a large group, small group, or 1-on-1.
+          h4 Additional considerations
+          p There are many tools that meet the key criteria&mdash;consider using the tool that is the most culturally and institutionally appropriate and/or where students already have existing accounts.
+          h4 Recommended processes
+            ul
+              li Faculty and student onboarding
+              li Feedback interviews or survey
+
+  section.bar-section
+    .bar-section--header
+      .container
+        h3.bar-section--header--text.text-center Early implementation case study
+    .container
+      .category.category__padded.category__post-header
+        .wysiwyg
+          h4 Institutional requirements
+          p Our goal with pilot tests was to allow students access a tool that provided visibility into online presence of their peers and faculty and allowed large group or 1-on-1 chat, without requiring students to create a new third party account. Students email addresses were already Google accounts, so we utilized Google Hangouts as the chat tool.
+          h4 Complexity
+        .breakdown
+          h5.breakdown--title Low
+          p.breakdown--subtitle
+            em Based on time, required skills and reach.
+          .breakdown--table
+            .row.no-indent
+              .medium-4.columns
+                h5.breakdown--table--title Time
+                .row.time-slider.collapse
+                  .small-12-columns
+                    .scale-chart(data-position="0.1")
+                      .scale-chart--inner
+                  .small-6.columns Immediate
+                  .small-6.columns.text-right Months
+                p
+                  strong Typical time to implement
+                ul
+                  li Google Hangout creation: 1 hour
+                  li Student announcement: 30 minutes
+              .medium-4.columns
+                h5.breakdown--table--title Required skills
+                .row.time-slider.collapse
+                  .small-12-columns
+                    .scale-chart(data-position="0.1")
+                      .scale-chart--inner
+                  .small-6.columns Just me
+                  .small-6.columns.text-right Many others
+                p
+                  strong None
+              .medium-4.columns
+                h5.breakdown--table--title Reach
+                .row.time-slider.collapse
+                  .small-12-columns
+                    .scale-chart(data-position="0.1")
+                      .scale-chart--inner
+                  .small-6.columns Single section
+                  .small-6.columns.text-right Entire program
+                p
+                  strong Systems impacted
+                  ul
+                    li None
+                p
+                  strong Required technology
+                p Platform that enables:
+                  ul
+                    li Visibility to active group members
+                    li Communication with a group
+                    li Direct communication with a single person in the group
+                    li Examples include Google Hangouts, Slack, etc.
+        //- .row.collapse
+          .medium-6.columns
+            a(href='/examples/progress-tracker').callout.dark-callout
+              p
+                strong Progress dashboard preview
+              p
+                span.icon-link
+                  i.fa.fa-external-link(aria-hidden='true')
+                  | &nbsp;
+                  span Progress Tracker Example Course
+
+        .wysiwyg.wysiwyg__section: h4 Steps to implement with Blackboard
+        ol
+          li
+            p 
+              strong Implement change management page.
+              br
+              a.icon-link(href='#contact')
+                span Contact Karla Crowther for more information
+            br(clear='all')
+          li
+            p
+              strong Create group in Google Hangout.
+            br(clear='all')
+          li
+            p
+              strong Copy Google Hangouts&rsquo; &lsquo;Join by link&rsquo; URL.
+            br(clear='all')
+          li
+            p
+              strong Post or send announcement to invite students.
+            br(clear='all')
+
+        .wysiwyg.wysiwyg__section
+          h4#resources Resources
+          p.subheading The following resources were created to support the creation of a private community:
+        .row.no-indent
+          .medium-6.columns
+            a(href='#').callout.dark-callout
+              p: strong Change management web page
+              p
+                span.icon-link
+                  i.fa.fa-download(aria-hidden='true')
+                  | &nbsp;
+                  span Download HTML file (500 KB)
+          .medium-6.columns
+            a(href='#').callout.dark-callout
+              p: strong Faculty guide
+              p
+                span.icon-link
+                  i.fa.fa-download(aria-hidden='true')
+                  | &nbsp;
+                  span View guide (500 KB)
+          .medium-6.columns
+            a(href='#').callout.dark-callout
+              p: strong Student feedback survey
+              p
+                span.icon-link
+                  i.fa.fa-download(aria-hidden='true')
+                  | &nbsp;
+                  span View survey questions
+          .medium-6.columns.end
+            a(href='#').callout.dark-callout
+              p: strong User interview questions
+              p
+                span.icon-link
+                  i.fa.fa-download(aria-hidden='true')
+                  | &nbsp;
+                  span View student interview questions
+        .wysiwyg.wysiwyg__section: h4#contact For more Information
+        .row.no-indent
+          .medium-6.columns
+            h6 General inquiries
+            .callout.dark-callout.dark-callout__with-img
+              img.u-rounded-img.dark-callout--img(src='assets/img/Erich-LinkedIn.jpg')
+              div Erich Hochmeister
+              a(href='mailto:erich.hochmeister@laureate.net') erich.hochmeister@laureate.net
+          .medium-6.columns
+            h6 Technical inquiries
+            .callout.dark-callout.dark-callout__with-img
+              img.u-rounded-img.dark-callout--img(src='assets/img/Karla-LinkedIn.jpg')
+              div Karla Crowther
+              a(href='mailto:karla.crowther@laureate.net') karla.crowther@laureate.net
+
+        br
+        br
+        include includes/interests.pug
+
+  section.related
+    .container
+      h1.text-center Related solutions
+      .row.collapse
+        .medium-12.columns
+          section.category.category__standalone
+            .row
+              .medium-6.columns
+                include includes/callout-course-progress-tracker.pug
+              .medium-6.columns
+                include includes/callout-ux-framework.pug
+            .row
+              .medium-6.columns.end
+                include includes/callout-change-management.pug
+      a.nav(href='index.'+locals.ext)
+        i.fa.fa-arrow-left(aria-hidden='true')
+        span All solutions

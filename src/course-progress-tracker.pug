@@ -1,0 +1,249 @@
+extends templates/layout.pug
+
+block variables
+  //- Setting body_class changes the overall color of the page
+  //- body_class options: 'category-support', 'category-experience', 'category-understand', 'category-start'
+  - var body_class = 'category-support theme__support'
+
+block title
+  title Course progress tracker
+
+block sub-page-content
+  .row.heading
+    .medium-8.columns.medium-centered.text-center.white
+      h6 Help students feel more supported
+      h1 Course progress tracker
+
+  section.container
+    .category.category__padded
+      figure
+        img(src='assets/img/screenshots/Top-Course-progress-tracker@2x.png')
+      p.copy.copy__large The course progress tracker is a tool designed to provide a clear summary of student course assessment responsibilities. The course progress tracker shows graded assessments from Blackboard, due date, max points, and status (not yet submitted, overdue, submitted).
+      blockquote It gives a better look at when assignments are due and how many assignments I have.
+      .copy.copy__citation
+        p
+          | Online Student
+          br
+          | Walden University
+
+  section.bar-section
+    .bar-section--header
+      .container
+        h3.bar-section--header--text.text-center Process overview
+    .container
+      .category.category__padded.category__post-header
+        .wysiwyg
+          h4 Considerations for implementation
+          p The purpose of the course progress tracker is to provide students a clear view of their assessment responsibilities and progress as they proceed through their course. A view of assessments due in the next five days is provided at the top of the page, to help students identify and prioritize the most urgent items. Additional sections provide increasingly detailed information as the student scrolls down the page, including a view of all course assessments by week and a section containing helpful links (i.e., insitution library, student portal, etc.). Key assessment details are provided, including name and type, due date, max number of points, completion status, and a direct link to the assessment.
+          h4 Additional considerations
+          p Our implementation used Blackboard&rsquo;s gradebook and a student-facing HTML page, but a similar result could be achieved other ways if needed. Key components include 1) a list or spreadsheet of assessments for the course, for each student, that can be updated with submission status as students turn in their assessments and 2) a way for students to see their individual status.
+          p We clarified submission status by showing a week-by-week list of graded assignments for the entire course, as well as when they were due and a status of submitted, not yet submitted, or overdue. (If an assignment is overdue, we flagged it visually and included late policy details, to help the student understand that they could still get partial credit and to encourage them to complete the assignment.)
+          h4 Recommended processes
+          ul
+            li Onboarding faculty and student
+            li Gather student and faculty feedback
+
+  section.bar-section
+    .bar-section--header
+      .container
+        h3.bar-section--header--text.text-center Early implementation case study
+    .container
+      .category.category__padded.category__post-header
+        .wysiwyg
+          h4 Institutional requirements
+          p Our goal was to help students feel supported by providing a simple and dynamic way to understand their course responsibilities and progress.
+          h4 Complexity
+        .breakdown
+          h5.breakdown--title High
+          p.breakdown--subtitle
+            em Based on time, required skills and reach.
+          .breakdown--table
+            .row.no-indent
+              .medium-4.columns
+                h5.breakdown--table--title Time
+                .row.time-slider.collapse
+                  .small-12-columns
+                    .scale-chart(data-position="1.0")
+                      .scale-chart--inner
+                  .small-6.columns Immediate
+                  .small-6.columns.text-right Months
+                p
+                  strong Typical time to implement
+                ul
+                  li Building block implementation: 4 hours (per Blackboard installation)
+                  li Progress dashboard creation: 8 hours per section
+              .medium-4.columns
+                h5.breakdown--table--title Required skills
+                .row.time-slider.collapse
+                  .small-12-columns
+                    .scale-chart(data-position="1.0")
+                      .scale-chart--inner
+                  .small-6.columns Just me
+                  .small-6.columns.text-right Many others
+                p
+                  strong I.T.
+                ul
+                  li Implement (and potentially edit) Blackboard building block
+                  li Implement and edit front-end web package
+                p
+                  strong Blackboard admin
+                ul
+                  li Add and edit Blackboard navigation to include link to progress dashboard
+              .medium-4.columns
+                h5.breakdown--table--title Reach
+                .row.time-slider.collapse
+                  .small-12-columns
+                    .scale-chart(data-position="1.0")
+                      .scale-chart--inner
+                  .small-6.columns Single section
+                  .small-6.columns.text-right Entire program
+                p
+                  strong Systems impacted
+                  ul
+                    li Blackboard
+                p
+                  strong Required technology
+                ul
+                  li Must have date management enabled in the course
+                  li Must use Blackboard Grade Center
+                  li Front-end web package hosting solution (could be within Blackboard file structure)
+        .row.collapse
+          .medium-6.columns
+            a(href='examples/progress-tracker/index.'+locals.ext target="_blank" rel="noopener").callout.dark-callout
+              p
+                strong Course progress tracker preview
+              p
+                span.icon-link
+                  i.fa.fa-external-link(aria-hidden='true')
+                  | &nbsp;
+                  span Course progress tracker example
+
+        .wysiwyg.wysiwyg__section: h4 Steps to implement with Blackboard
+        ol
+          li
+            p: strong Populate Blackboard Grade Center with assignments and student list
+            br(clear='all')
+          li
+            p
+              strong Install Blackboard Building Block
+              br
+              a.icon-link(href='#resources')
+                span Download .war file 
+                | &nbsp;
+                i.fa.fa-arrow-down(aria-hidden='true')
+            br(clear='all')
+          li
+            p
+              strong Setup the front-end web package
+              br
+              a.icon-link(href='#resources')
+                span Download HTML, CSS, JavaScript package 
+                | &nbsp;
+                i.fa.fa-arrow-down(aria-hidden='true')
+            br(clear='all')
+          li
+            p
+              strong Add linking to course progress tracker
+              br
+              a(href='#contact') Contact Karla Crowther
+            br(clear='all')
+          li
+            p
+              strong Onboard faculty
+              br
+              a.icon-link(href='#resources')
+                span Download faculty guide 
+                | &nbsp;
+                i.fa.fa-arrow-down(aria-hidden='true')
+            br(clear='all')
+
+        .wysiwyg.wysiwyg__section
+          h4#resources Resources
+          p.subheading The following resources were created to support the course progress tracker:
+        .row.no-indent
+          .medium-6.columns
+            a(href='assets/uploads/coursetracker-b2-0.0.5.war.zip').callout.dark-callout
+              p: strong Blackboard building block
+              p
+                span.icon-link
+                  i.fa.fa-download(aria-hidden='true')
+                  | &nbsp;
+                  span Download .war file (500 KB)
+          .medium-6.columns
+            a(href='assets/uploads/course-tracker-phase-2-build.zip').callout.dark-callout
+              p: strong Front-end web packgage (HTML, CSS and JavaScript)
+              p
+                span.icon-link
+                  i.fa.fa-download(aria-hidden='true')
+                  | &nbsp;
+                  span Download HTML, CSS and JavaScript file package (500 KB)
+          .medium-6.columns
+            a(href='assets/uploads/FacultyGuide-CourseProgressTracker.pdf').callout.dark-callout
+              p: strong Faculty guide
+              p
+                span.icon-link
+                  i.fa.fa-download(aria-hidden='true')
+                  | &nbsp;
+                  span View faculty guide
+          .medium-6.columns
+            a(href='https://gkl.typeform.com/to/m1GZmU' target="_blank" rel="noopener").callout.dark-callout
+              p: strong Student feedback survey
+              p
+                span.icon-link
+                  i.fa.fa-external-link(aria-hidden='true')
+                  | &nbsp;
+                  span View survey questions
+          .medium-6.columns
+            a(href='assets/uploads/ProgressTracker-StudentInterviewquestions.pdf').callout.dark-callout
+              p: strong Student interview questions
+              p
+                span.icon-link
+                  i.fa.fa-download(aria-hidden='true')
+                  | &nbsp;
+                  span View student questions
+          .medium-6.columns.end
+            a(href='assets/uploads/ClassroomProgressTrackerFacultyInterviewQuestions.pdf').callout.dark-callout
+              p: strong Faculty interview questions
+              p
+                span.icon-link
+                  i.fa.fa-download(aria-hidden='true')
+                  | &nbsp;
+                  span View faculty interview questions
+        .wysiwyg.wysiwyg__section: h4#contact For more information
+        .row.no-indent
+          .medium-6.columns
+            h6 General inquiries
+            .callout.dark-callout.dark-callout__with-img
+              img.u-rounded-img.dark-callout--img(src='assets/img/Erich-LinkedIn.jpg')
+              div Erich Hochmeister
+              a(href='mailto:erich.hochmeister@laureate.net') erich.hochmeister@laureate.net
+          .medium-6.columns
+            h6 Technical inquiries
+            .callout.dark-callout.dark-callout__with-img
+              img.u-rounded-img.dark-callout--img(src='assets/img/Karla-LinkedIn.jpg')
+              div Karla Crowther
+              a(href='mailto:karla.crowther@laureate.net') karla.crowther@laureate.net
+
+        br
+        br
+        include includes/interests.pug
+
+  section.related
+    .container
+      h1.text-center Related solutions
+      .row.collapse
+        .medium-12.columns
+          section.category.category__standalone
+            .row
+              .medium-6.columns
+                include includes/callout-ux-framework.pug
+              .medium-6.columns
+                include includes/callout-calendaring.pug
+            .row
+              .medium-6.columns
+                include includes/callout-live-chat.pug
+              .medium-6.columns.end
+                include includes/callout-private-communities.pug
+      a.nav(href='index.'+locals.ext)
+        i.fa.fa-arrow-left(aria-hidden='true')
+        span All solutions

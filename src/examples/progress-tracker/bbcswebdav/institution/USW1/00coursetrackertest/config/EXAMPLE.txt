@@ -1,0 +1,103 @@
+{
+	"show_course_progress": false,
+	"show_all_items": true,
+  "back_to_blackboard": "CourseHome",
+  "help": "#",
+  "course_name": "Enhancing Learning for Diverse Populations (Self-Directed)",
+  "course_start_date": "2016-10-20T00:00:00-05:00",
+  "course_end_date": "2017-01-25T14:00:00-06:00",
+  "assignments": {
+  	"_13341984_1": {
+      "href": null,
+      "deep_link": "MD01.AS1"
+    },
+    "_13341983_1": {
+      "href": null,
+      "deep_link": "MD01.DB1.TH1"
+    },
+    "_13341985_1": {
+      "href": null,
+      "deep_link": "MD02.DB1.TH1"
+    },
+	"_13341986_1": {
+      "href": null,
+      "deep_link": "MD03.DB1.TH1"
+    },
+	"_13341987_1": {
+      "href": null,
+      "deep_link": "MD04.DB1.TH1"
+    },
+	"_13341988_1": {
+      "href": null,
+      "deep_link": "MD04.AS1"
+    },
+	"_13341990_1": {
+      "href": null,
+      "deep_link": "MD06.AS1"
+    },
+	"_13341989_1": {
+      "href": null,
+      "deep_link": "MD05.DB1.TH1"
+    },
+	"_13341991_1": {
+      "href": null,
+      "deep_link": "MD07.DB1.TH1"
+    },
+
+	"_13341992_1": {
+      "href": null,
+      "deep_link": "MD07.AS2"
+    }
+
+  },
+  "navigation": [
+    [
+      {
+        "label": "Module 1",
+        "href": "#"
+      },
+      {
+        "label": "Module 2",
+        "href": "#"
+      },
+      {
+        "label": "Module 3",
+        "href": "#"
+      },
+      {
+        "label": "Module 4",
+        "href": "#"
+      },
+      {
+        "label": "Module 5",
+        "href": "#"
+      },
+      {
+        "label": "Module 6",
+        "href": "#"
+      },
+      {
+        "label": "Module 7",
+        "href": "#"
+      }
+    ],
+    [
+      {
+        "label": "Syllabus",
+        "href": "#"
+      },
+      {
+        "label": "Course Overview",
+        "href": "#"
+      },
+      {
+        "label": "Course Information",
+        "href": "#"
+      },
+      {
+        "label": "Resource List",
+        "href": "#"
+      }
+    ]
+  ]
+}

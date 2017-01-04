@@ -1,0 +1,151 @@
+{
+    "user": {
+        "firstName": "GoKart",
+        "lastName": "Student",
+        "username": "laur.gokartstudent",
+        "usernameHashed": "46a0f45f1c7947bb4290285b304baa73c84030cb5383aa796dffcd08eb9724a0"
+    },
+    "assignments": [{
+        "name": "Discussion - Module 1",
+        "displayName": "Module 1 Discussion",
+        "id": "_13341983_1",
+        "status": "SUBMITTED",
+        "points": null,
+        "maximumPoints": 4.0,
+        "grade": 3.5,
+        "dueDate": 1477893540000
+    }, {
+        "name": "Assignment - Module 1",
+        "displayName": "Module 1 Assignment",
+        "id": "_13341984_1",
+        "status": "UNSUBMITTED",
+        "points": null,
+        "maximumPoints": 4.0,
+        "grade": null,
+        "dueDate": 1477893540000
+    }, {
+        "name": "Discussion - Module 2",
+        "displayName": "Module 2 Discussion",
+        "id": "_13341985_1",
+        "status": "SUBMITTED",
+        "points": null,
+        "maximumPoints": 4.0,
+        "grade": null,
+        "dueDate": 1478499240000
+    }, {
+        "name": "Discussion - Module 3",
+        "displayName": "Module 3 Discussion",
+        "id": "_13341986_1",
+        "status": "SUBMITTED",
+        "points": null,
+        "maximumPoints": 4.0,
+        "grade": null,
+        "dueDate": 1479104940000
+    }, {
+        "name": "Discussion - Module 4",
+        "displayName": "Module 4 Discussion",
+        "id": "_13341987_1",
+        "status": "SUBMITTED",
+        "points": null,
+        "maximumPoints": 4.0,
+        "grade": null,
+        "dueDate": 1479710640000
+    }, {
+        "name": "Assignment 1 - Module 4",
+        "displayName": "Module 4 Assignment 1",
+        "id": "_13341988_1",
+        "status": "UNSUBMITTED",
+        "points": null,
+        "maximumPoints": 12.0,
+        "grade": null,
+        "dueDate": 1479710640000
+    }, {
+        "name": "Discussion - Module 5",
+        "displayName": "Module 5 Discussion",
+        "id": "_13341989_1",
+        "status": "UNSUBMITTED",
+        "points": null,
+        "maximumPoints": 4.0,
+        "grade": null,
+        "dueDate": 1482130740000
+    }, {
+        "name": "Major Assessment - Module 6",
+        "displayName": "Module 6 Major Assessment",
+        "id": "_13341990_1",
+        "status": "UNSUBMITTED",
+        "points": null,
+        "maximumPoints": 4.0,
+        "grade": null,
+        "dueDate": 1481525940000
+    }, {
+        "name": "Discussion - Module 7",
+        "displayName": "Module 7 Discussion",
+        "id": "_13341991_1",
+        "status": "UNSUBMITTED",
+        "points": null,
+        "maximumPoints": 4.0,
+        "grade": null,
+        "dueDate": 1482130740000
+    }, {
+        "name": "Reflective Essay - Module 7",
+        "displayName": "Module 7 Reflective Essay",
+        "id": "_13341992_1",
+        "status": "UNSUBMITTED",
+        "points": null,
+        "maximumPoints": 4.0,
+        "grade": null,
+        "dueDate": 1482130740000
+    },
+    {
+        "name": "Discussion - Module 8",
+        "displayName": "Module 8 Discussion",
+        "id": "_13341991_1",
+        "status": "UNSUBMITTED",
+        "points": null,
+        "maximumPoints": 4.0,
+        "grade": null,
+        "dueDate": 1485068340000
+    }, {
+        "name": "Assignment - Module 8",
+        "displayName": "Module 8 Assignment",
+        "id": "_13341992_1",
+        "status": "UNSUBMITTED",
+        "points": null,
+        "maximumPoints": 4.0,
+        "grade": null,
+        "dueDate": 1485241140000
+    },
+    {
+        "name": "Weighted Total",
+        "displayName": null,
+        "id": "_13341993_1",
+        "status": "UNSUBMITTED",
+        "points": null,
+        "maximumPoints": 0.0,
+        "grade": null,
+        "dueDate": null
+    }, {
+        "name": "Total",
+        "displayName": null,
+        "id": "_13341994_1",
+        "status": "UNSUBMITTED",
+        "points": null,
+        "maximumPoints": 0.0,
+        "grade": null,
+        "dueDate": null
+    }, {
+        "name": "Final Letter Grade",
+        "displayName": "Final Letter Grade",
+        "id": "_13341995_1",
+        "status": "UNSUBMITTED",
+        "points": null,
+        "maximumPoints": 0.0,
+        "grade": null,
+        "dueDate": null
+    }],
+    "course": {
+        "name": "EDUC-6616B-3,Enhance Learn for Diverse Popu.2016 Fall Pilot Demo",
+        "startDate": 1476763200000,
+        "endDate": 1487307599000
+    }
+}

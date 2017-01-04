@@ -1,0 +1,51 @@
+extends templates/layout.pug
+
+block variables
+  - var body_class = 'home'
+
+block title
+  title Classroom Solutions
+
+block content
+  .row.collapse
+    .small-12.medium-10.columns.medium-centered.text-center.white
+      //- h6 Help students feel more supported
+      h1 Classroom solutions
+      p.copy We solved some tricky problems to improve the digital classroom experience for our students and faculty. By sharing our insights we offer a shortcut to faculty like you who might need similar solutions.
+      hr
+  .row.collapse
+    .medium-10.columns.medium-centered.text-center.white
+      h4
+        a(href='course-progress-tracker.'+locals.ext).brown_light.serif What role are you in?
+        p
+      //- p.copy Based on your selection we&rsquo;ll surface the things we think will work best for you.
+  .row.collapse
+    .medium-10.columns.medium-centered
+      .accordion-tabs
+        ul#what-role-tabs.text-center
+          li.accordion-tabs--title.is-active
+            a(href='#panel1', aria-selected='true') I'm an instructor
+          li.accordion-tabs--title
+            a(href='#panel2') I'm a learning architect
+          li.accordion-tabs--title
+            a(href='#panel3') I'm a director or dean
+        .white
+          #panel1.accordion-tabs--content.is-active
+            p.copy.copy__large
+              | As an instructor, you understand student needs and can impact their digital learning experience throughout their course. Consider solutions with low complexity (unless you have technical experience) that can be implemented on a per-section basis.
+          #panel2.accordion-tabs--content
+            p.copy.copy__large
+              | As a learning architect, you understand and craft an impactful student digital learning experience. You&rsquo;ll probably be comfortable implementing solutions with Blackboard dependencies, like those found in the &ldquo;Meet users where they are&rdquo; section.
+          #panel3.accordion-tabs--content
+            p.copy.copy__large
+              | As a leader for your program or institution, you understand student needs and the resources available to impact their digital learning experience. You probably have the influence and teams available to implement highly complex solutions with large-scale impact.
+
+  .row.collapse
+    .medium-12.columns.medium-centered
+      include includes/category-support.pug
+  .row.collapse
+    .medium-12.columns.medium-centered
+      include includes/category-experience.pug
+  .row.collapse
+    .medium-12.columns.medium-centered
+      include includes/category-understand.pug

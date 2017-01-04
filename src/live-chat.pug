@@ -1,0 +1,223 @@
+extends templates/layout.pug
+
+block variables
+  //- Setting body_class changes the overall color of the page
+  //- body_class options: 'category-support', 'category-experience', 'category-understand', 'category-start'
+  - var body_class = 'category-support theme__support'
+
+block title
+  title Live chat
+
+block sub-page-content
+  .row.heading
+    .medium-8.columns.medium-centered.text-center.white
+      h6 Help students feel more supported
+      h1 Live chat
+
+  section.container
+    .category.category__padded
+      figure
+        img(src='assets/img/screenshots/Top-Live-chat.png')
+      p.copy.copy__large 24/7 live chat enables students to get help at the moment they need it. Live chat gives busy students an avenue to get technical support quickly so they can complete their intended task with minimal delay or interruption.
+      blockquote Live chat helped me to do some of my assignments, and provided the ability to work 24 hours/day; 7 days/week.
+      .copy.copy__citation
+        p
+          | Online Student
+          br
+          | Walden University
+
+  section.bar-section
+    .bar-section--header
+      .container
+        h3.bar-section--header--text.text-center Process overview
+    .container
+      .category.category__padded.category__post-header
+        .wysiwyg
+          h4 Considerations for implementation
+          p The purpose of live chat is to facilitate busy students in completing their coursework as seamlessly as possible. It's important to give access to support directly from the classroom experience, to limit complexity in submitting a request, and to provide as immediate a response as possible so students don't have to come back to the task later. Providing access to multiple support services in one place would be the ideal state&mdash;for example, have just one button that allowed students to ask questions of tech support, their advisor, financial aid, faculty, etc.
+          //-h4 Additional considerations
+          //-ul
+            li We clarified submission status by showing a week-by-week list of graded assignments for the entire course, as well as when they were due and a status of Submitted, Not Yet Submitted, or Overdue. (If an assignment is Overdue, we flagged it visually and included late policy details, to help the student understand that they could still get partial credit and to encourage them to complete the assignment.)
+            li You want to provide instant visibility of the most timely events. For example, we included a rolling list of assessments due within the next five days.
+            li To provide additional context, student views were customized to their timezone, included the current date, and identified the number of days remaining in the course.
+            li For ease of access to assignments, we deep-linked directly to assignments in Blackboard.
+          h4 Recommended processes
+          ul
+            li Faculty onboarding
+            li Feedback survey
+
+  section.bar-section
+    .bar-section--header
+      .container
+        h3.bar-section--header--text.text-center Early implementation case study
+    .container
+      .category.category__padded.category__post-header
+        .wysiwyg
+          h4 Institutional requirements
+          p The pilot institution already had a 24/7 support service, but it was only accessible through the student portal, not anywhere in the classroom. Our goal was to make students aware of the live chat support option and make using that support quick and easy by adding access directly from the courseroom experience.
+          h4 Complexity
+        .breakdown
+          h5.breakdown--title Low
+          p.breakdown--subtitle
+            em Based on time, required skills and reach.
+          .breakdown--table
+            .row.no-indent
+              .medium-4.columns
+                h5.breakdown--table--title Time
+                .row.time-slider.collapse
+                  .small-12-columns
+                    .scale-chart(data-position="0.2")
+                      .scale-chart--inner
+                  .small-6.columns Immediate
+                  .small-6.columns.text-right Months
+                p
+                  strong Typical time to implement
+                ul
+                  li Classroom (Blackboard and HTML) implementation: 1 hour per location
+                  li Change management implementation: 4 hours
+              .medium-4.columns
+                h5.breakdown--table--title Required skills
+                .row.time-slider.collapse
+                  .small-12-columns
+                    .scale-chart(data-position="0.5")
+                      .scale-chart--inner
+                  .small-6.columns Just me
+                  .small-6.columns.text-right Many others
+                p
+                  strong Blackboard admin
+                ul
+                  li Add or edit Blackboard navigation to include link to live chat
+                  li Add or edit Blackboard course home page to include link to live chat
+                  li Add or edit HTML classroom navigation to include link to live chat
+                  li Add or edit student support page to include link to live chat
+                  li Implement change management page
+
+              .medium-4.columns
+                h5.breakdown--table--title Reach
+                .row.time-slider.collapse
+                  .small-12-columns
+                    .scale-chart(data-position="0.1")
+                      .scale-chart--inner
+                  .small-6.columns Single section
+                  .small-6.columns.text-right Entire program
+                p
+                  strong Systems impacted
+                  ul
+                    li Blackboard
+                p
+                  strong Required technology
+                ul
+                  li Google Hangouts
+        //- .row.collapse
+          .medium-6.columns
+            a(href='/examples/progress-tracker').callout.dark-callout
+              p
+                strong Progress dashboard preview
+              p
+                span.icon-link
+                  i.fa.fa-external-link(aria-hidden='true')
+                  | &nbsp;
+                  span Progress Tracker Example Course
+
+        .wysiwyg.wysiwyg__section: h4 Steps to implement with Blackboard
+        ol
+          li
+            p
+              strong Add live chat CTA to Blackboard and HTML pages.
+              br
+              a.icon-link(href='#contact')
+                span Contact Karla Crowther for more information
+            br(clear='all')
+          li
+            p
+              strong Implement change management page.
+              br
+              a.icon-link(href='#contact')
+                span Contact Karla Crowther for more information
+            br(clear='all')
+          li
+            p
+              strong Onboard faculty.
+              br
+              a.icon-link(href='#')
+                span Download faculty guide
+                | &nbsp;
+                i.fa.fa-arrow-down(aria-hidden='true')
+            br(clear='all')
+
+        .wysiwyg.wysiwyg__section
+          h4#resources Resources
+          p.subheading The following resources were created to support live chat:
+        .row.no-indent
+          .medium-6.columns
+            a(href='#').callout.dark-callout
+              p: strong Live chat CTA
+              p
+                span.icon-link
+                  i.fa.fa-download(aria-hidden='true')
+                  | &nbsp;
+                  span Download HTML files (500 KB)
+          .medium-6.columns
+            a(href='#').callout.dark-callout
+              p: strong Change management page
+              p
+                span.icon-link
+                  i.fa.fa-download(aria-hidden='true')
+                  | &nbsp;
+                  span Download HTML files (500 KB)
+          .medium-6.columns
+            a(href='#').callout.dark-callout
+              p: strong Faculty guide
+              p
+                span.icon-link
+                  i.fa.fa-download(aria-hidden='true')
+                  | &nbsp;
+                  span Download guide (500 KB)
+          .medium-6.columns.end
+            a(href='#').callout.dark-callout
+              p: strong Feedback survey
+              p
+                span.icon-link
+                  i.fa.fa-download(aria-hidden='true')
+                  | &nbsp;
+                  span Download survey questions (500 KB)
+        .wysiwyg.wysiwyg__section: h4#contact For more information
+        .row.no-indent
+          .medium-6.columns
+            h6 General inquiries
+            .callout.dark-callout.dark-callout__with-img
+              img.u-rounded-img.dark-callout--img(src='assets/img/Karla-LinkedIn.jpg')
+              div Karla Crowther
+              a(href='mailto:karla.crowther@laureate.net') karla.crowther@laureate.net
+          //- .medium-6.columns
+            h6 Technical Inquiries
+            .callout.dark-callout.dark-callout__with-img
+              img.u-rounded-img.dark-callout--img(src='assets/img/Stephanie-LinkedIn.jpg')
+              div Stephanie Hossbach
+              a(href='mailto:stephanie.hossbach@laureate.net') stephanie.hossbach@laureate.net
+
+        br
+        br
+        include includes/interests.pug
+
+
+
+  section.related
+    .container
+      h1.text-center Related solutions
+      .row.collapse
+        .medium-12.columns
+          section.category.category__standalone
+            .row
+              .medium-6.columns
+                include includes/callout-calendaring.pug
+              .medium-6.columns
+                include includes/callout-ux-framework.pug
+            .row
+              .medium-6.columns
+                include includes/callout-course-progress-tracker.pug
+              .medium-6.columns.end
+                include includes/callout-private-communities.pug
+      a.nav(href='index.'+locals.ext)
+        i.fa.fa-arrow-left(aria-hidden='true')
+        span All solutions

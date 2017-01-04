@@ -1,0 +1,211 @@
+extends templates/layout.pug
+
+block variables
+  //- Setting body_class changes the overall color of the page
+  //- body_class options: 'category-support', 'category-experience', 'category-understand', 'category-start'
+  - var body_class = 'category-support theme__understand'
+
+block title
+  title SafeAssign
+
+block sub-page-content
+  .row.heading
+    .medium-8.columns.medium-centered.text-center.white
+      h6 Meet users where they are
+      h1 SafeAssign
+
+  section.container
+    .category.category__padded
+      figure
+        img(src='assets/img/screenshots/Top-SafeAssign@2x.png')
+      p.copy.copy__large SafeAssign helps faculty reduce their time spent grading assessments and helps students submit assignments without a third party.
+      blockquote I was able to give more time to my students because I wasn&rsquo;t clicking between the gradebook, the rubric and the student&rsquo;s assignment. I was able to have all three displayed at once and significantly reduced my grading time.
+      .copy.copy__citation
+        p
+          | Instructor
+          br
+          | Walden University
+
+  section.bar-section
+    .bar-section--header
+      .container
+        h3.bar-section--header--text.text-center Process overview
+    .container
+      .category.category__padded.category__post-header
+        .wysiwyg
+          h4 Considerations for implementation
+          p The purpose of using SafeAssign is to simplify faculty management of their LMS gradebook and the student's assignment, saving them time wrangling systems and so they have more time to interact with students. SafeAssign allows faculty to view an assessment's rubric alongside a student's assessment and the Blackboard gradebook, so they can see all the information they need to review and grade assessments.
+          //- h4 Additional considerations:
+          //- ul
+            li We clarified submission status by showing a week-by-week list of graded assignments for the entire course, as well as when they were due and a status of Submitted, Not Yet Submitted, or Overdue. (If an assignment is Overdue, we flagged it visually and included late policy details, to help the student understand that they could still get partial credit and to encourage them to complete the assignment.)
+            li You want to provide instant visibility of the most timely events. For example, we included a rolling list of assessments due within the next five days.
+            li To provide additional context, student views were customized to their timezone, included the current date, and identified the number of days remaining in the course.
+            li For ease of access to assignments, we deep-linked directly to assignments in Blackboard.
+          //- h4 Recommended processes
+          //- ul
+            li Faculty and student onboarding
+            li Feedback interviews or survey
+
+  section.bar-section
+    .bar-section--header
+      .container
+        h3.bar-section--header--text.text-center Early implementation case study
+    .container
+      .category.category__padded.category__post-header
+        .wysiwyg
+          h4 Institutional requirements
+          p Our goal was to help faculty streamline a common and necessary process, so they could spend more time interacting with students.
+          h4 Complexity
+        .breakdown
+          h5.breakdown--title Medium&ndash;High
+          p.breakdown--subtitle
+            em Based on time, required skills and reach.
+          .breakdown--table
+            .row.no-indent
+              .medium-4.columns
+                h5.breakdown--table--title Time
+                .row.time-slider.collapse
+                  .small-12-columns
+                    .scale-chart(data-position="0.5")
+                      .scale-chart--inner
+                  .small-6.columns Immediate
+                  .small-6.columns.text-right Months
+                p
+                  strong Typical time to implement
+                ul
+                  li SafeAssign implementation: 8 hours
+              .medium-4.columns
+                h5.breakdown--table--title Required Skills
+                .row.time-slider.collapse
+                  .small-12-columns
+                    .scale-chart(data-position="1.0")
+                      .scale-chart--inner
+                  .small-6.columns Just me
+                  .small-6.columns.text-right Many others
+                p
+                  strong Academic
+                ul
+                  li TBD
+                p
+                  strong Blackboard admin
+                ul
+                  li TBD
+              .medium-4.columns
+                h5.breakdown--table--title Reach
+                .row.time-slider.collapse
+                  .small-12-columns
+                    .scale-chart(data-position="1.0")
+                      .scale-chart--inner
+                  .small-6.columns Single section
+                  .small-6.columns.text-right Entire program
+                p
+                  strong Systems impacted
+                  ul
+                    li Blackboard
+                p
+                  strong Required technology
+                ul
+                  li TBD
+        //- .row.collapse
+          .medium-6.columns
+            a(href='/examples/progress-tracker').callout.dark-callout
+              p
+                strong Progress dashboard preview
+              p
+                span.icon-link
+                  i.fa.fa-external-link(aria-hidden='true')
+                  | &nbsp;
+                  span Progress Tracker Example Course
+
+        .wysiwyg.wysiwyg__section: h4 Steps to implement with Blackboard
+        ol
+          li
+            p: strong Confirm SafeAssign as an appropriate assessment submission tool for your insitution
+            br(clear='all')
+          li
+            p
+              strong Activate SafeAssign in Blackboard (Blackboard admin)
+            br(clear='all')
+          li
+            p
+              strong Incorporate SafeAssign into course instructions and onboard faculty and students to usage
+            br(clear='all')
+          //- li
+            p
+              strong Add Linking to course progress tracker
+              br
+              a(href='#contact') Contact Karla Crowther
+            br(clear='all')
+
+        .wysiwyg.wysiwyg__section
+          h4#resources Resources
+          p.subheading The following resources were created to support SafeAssign:
+        .row.no-indent
+          .medium-6.columns
+            a(href='#').callout.dark-callout
+              p: strong SafeAssign instructions
+              p
+                span.icon-link
+                  i.fa.fa-download(aria-hidden='true')
+                  | &nbsp;
+                  span Download code and guide (500 KB)
+          .medium-6.columns
+            a(href='#').callout.dark-callout
+              p: strong TBD
+              p
+                span.icon-link
+                  i.fa.fa-download(aria-hidden='true')
+                  | &nbsp;
+                  span Download code and guide (500 KB)
+          //- .medium-6.columns
+            a(href='#').callout.dark-callout
+              p: strong Faculty guide
+              p
+                span.icon-link
+                  i.fa.fa-download(aria-hidden='true')
+                  | &nbsp;
+                  span Download code and guide (500 KB)
+          .medium-6.columns.end
+            a(href='#').callout.dark-callout
+              p: strong TBD
+              p
+                span.icon-link
+                  i.fa.fa-download(aria-hidden='true')
+                  | &nbsp;
+                  span Download code and guide (500 KB)
+        .wysiwyg.wysiwyg__section: h4#contact For More Information
+        .row.no-indent
+          .medium-6.columns
+            h6 General inquiries
+            .callout.dark-callout.dark-callout__with-img
+              img.u-rounded-img.dark-callout--img(src='assets/img/Erich-LinkedIn.jpg')
+              div Erich Hochmeister
+              a(href='mailto:erich.hochmeister@laureate.net') erich.hochmeister@laureate.net
+          //-.medium-6.columns
+            h6 Technical Inquiries
+            .callout.dark-callout.dark-callout__with-img
+              img.u-rounded-img.dark-callout--img(src='https://placehold.it/60')
+              div Stephanie Hossbach
+              a(href='mailto:stephanie.hossbach@laureate.net') stephanie.hossbach@laureate.net
+
+        br
+        br
+        include includes/interests.pug
+
+  section.related
+    .container
+      h1.text-center Related solutions
+      .row.collapse
+        .medium-12.columns
+          section.category.category__standalone
+            .row
+              .medium-6.columns
+                include includes/callout-ux-framework.pug
+              .medium-6.columns
+                include includes/callout-blackboard-rubrics.pug
+            .row
+              .medium-6.columns.end
+                include includes/callout-calendaring.pug
+      a.nav(href='index.'+locals.ext)
+        i.fa.fa-arrow-left(aria-hidden='true')
+        span All solutions

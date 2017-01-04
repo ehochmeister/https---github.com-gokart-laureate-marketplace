@@ -1,0 +1,201 @@
+extends templates/layout.pug
+
+block variables
+  //- Setting body_class changes the overall color of the page
+  //- body_class options: 'category-support', 'category-experience', 'category-understand', 'category-start'
+  - var body_class = 'category-support theme__understand'
+
+block title
+  title Blackboard rubrics
+
+block sub-page-content
+  .row.heading
+    .medium-8.columns.medium-centered.text-center.white
+      h6 Meet users where they are
+      h1 Blackboard rubrics
+
+  section.container
+    .category.category__padded
+      figure
+        img(src='assets/img/screenshots/Top-Blackboard-rubrics@2x.png')
+      p.copy.copy__large Using the LMS integrated rubric allows students and faculty to see important and relevant information about assessment criteria alongside their assignments. This provides clarity and saves time.
+      blockquote I loved being able to view the rubric in the same spot. Grade selection was easy. Commenting on the PDF copy of the student&rsquo;s submission was very easy to use. The changes saved me time grading assignments.
+      .copy.copy__citation
+        p
+          | Instructor
+          br
+          | Walden University
+
+  section.bar-section
+    .bar-section--header
+      .container
+        h3.bar-section--header--text.text-center Process overview
+    .container
+      .category.category__padded.category__post-header
+        .wysiwyg
+          h4 Considerations for implementation
+          p The purpose of utilizing the integrated rubrics in Blackboard was to take advatage of integrated functionality, meeting students and faculty in-assessment with details about how assignments will be graded.
+          h4 Additional considerations
+          p LMS rubric integrations may also help address accreditation requirements.
+          //- h4 Recommended processes
+          //- ul
+            li Faculty and student onboarding
+            li Feedback interviews or survey
+
+  section.bar-section
+    .bar-section--header
+      .container
+        h3.bar-section--header--text.text-center Early implementation case study
+    .container
+      .category.category__padded.category__post-header
+        .wysiwyg
+          h4 Institutional requirements
+          p Our goal was to provide greater clarity for students and faculty about grading criteria by integrating their rubric closer to their assessment.
+          h4 Complexity
+        .breakdown
+          h5.breakdown--title Medium&ndash;High
+          p.breakdown--subtitle
+            em Based on time, required skills and reach.
+          .breakdown--table
+            .row.no-indent
+              .medium-4.columns
+                h5.breakdown--table--title Time
+                .row.time-slider.collapse
+                  .small-12-columns
+                    .scale-chart(data-position="0.5")
+                      .scale-chart--inner
+                  .small-6.columns Immediate
+                  .small-6.columns.text-right Months
+                p
+                  strong Typical time to implement
+                ul
+                  li Blackboard rubric implementation: 8 hours
+              .medium-4.columns
+                h5.breakdown--table--title Required skills
+                .row.time-slider.collapse
+                  .small-12-columns
+                    .scale-chart(data-position="1.0")
+                      .scale-chart--inner
+                  .small-6.columns Just me
+                  .small-6.columns.text-right Many others
+                p
+                  strong Academic team
+                ul
+                  li ?
+                p
+                  strong Blackboard admin
+                ul
+                  li ?
+              .medium-4.columns
+                h5.breakdown--table--title Reach
+                .row.time-slider.collapse
+                  .small-12-columns
+                    .scale-chart(data-position="1.0")
+                      .scale-chart--inner
+                  .small-6.columns Single section
+                  .small-6.columns.text-right Entire program
+                p
+                  strong Systems impacted
+                  ul
+                    li Blackboard
+                p
+                  strong Required technology
+                ul
+                  li TBD
+        //- .row.collapse
+          .medium-6.columns
+            a(href='/examples/progress-tracker').callout.dark-callout
+              p
+                strong Progress dashboard preview
+              p
+                span.icon-link
+                  i.fa.fa-external-link(aria-hidden='true')
+                  | &nbsp;
+                  span Progress Tracker Example Course
+
+        .wysiwyg.wysiwyg__section: h4 Steps to implement with Blackboard
+        ol
+          li
+            p: strong Create or acquire rubrics that articulate learning assessment criteria
+            br(clear='all')
+          li
+            p
+              strong Enter rubric data into Blackboard
+            br(clear='all')
+          li
+            p
+              strong Onboard faculty and students about using rubrics to understand assessment criteria
+            br(clear='all')
+
+        .wysiwyg.wysiwyg__section
+          h4#resources Resources
+          p.subheading The following resources were created to support Blackboard rubrics:
+        .row.no-indent
+          .medium-6.columns
+            a(href='#').callout.dark-callout
+              p: strong ?
+              p
+                span.icon-link
+                  i.fa.fa-download(aria-hidden='true')
+                  | &nbsp;
+                  span Download code and guide (500 KB)
+          .medium-6.columns
+            a(href='#').callout.dark-callout
+              p: strong ?
+              p
+                span.icon-link
+                  i.fa.fa-download(aria-hidden='true')
+                  | &nbsp;
+                  span Download code and guide (500 KB)
+          .medium-6.columns
+            a(href='#').callout.dark-callout
+              p: strong ?
+              p
+                span.icon-link
+                  i.fa.fa-download(aria-hidden='true')
+                  | &nbsp;
+                  span Download code and guide (500 KB)
+          .medium-6.columns.end
+            a(href='#').callout.dark-callout
+              p: strong ?
+              p
+                span.icon-link
+                  i.fa.fa-download(aria-hidden='true')
+                  | &nbsp;
+                  span Download code and guide (500 KB)
+        .wysiwyg.wysiwyg__section: h4#contact For more information
+        .row.no-indent
+          .medium-6.columns
+            h6 General inquiries
+            .callout.dark-callout.dark-callout__with-img
+              img.u-rounded-img.dark-callout--img(src='assets/img/Erich-LinkedIn.jpg')
+              div Erich Hochmeister
+              a(href='mailto:erich.hochmeister@laureate.net') erich.hochmeister@laureate.net
+          .medium-6.columns
+            h6 Technical inquiries
+            .callout.dark-callout.dark-callout__with-img
+              img.u-rounded-img.dark-callout--img(src='assets/img/Karla-LinkedIn.jpg')
+              div Karla Crowther
+              a(href='mailto:karla.crowther@laureate.net') karla.crowther@laureate.net
+
+        br
+        br
+        include includes/interests.pug
+
+  section.related
+    .container
+      h1.text-center Related solutions
+      .row.collapse
+        .medium-12.columns
+          section.category.category__standalone
+            .row
+              .medium-6.columns
+                include includes/callout-ux-framework.pug
+              .medium-6.columns
+                include includes/callout-safe-assign.pug
+            .row
+              .medium-6.columns.end
+                include includes/callout-calendaring.pug
+      a.nav(href='index.'+locals.ext)
+        i.fa.fa-arrow-left(aria-hidden='true')
+        span All solutions

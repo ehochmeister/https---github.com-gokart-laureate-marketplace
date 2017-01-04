@@ -1,0 +1,938 @@
+@import 'foundation.scss';
+
+// colors
+$black: #000000;
+$blue: #2f6ca9;
+$blue_light: #306CA9;
+$brown: #8F5A2C;
+$brown_light: #E08E45;
+$grey_dark: #333333;
+$grey_light: #F2F2F2;
+$grey_medium: #767676;
+$orange: #F15C22;
+$purple: #710662;
+$red: #BA1526;
+$white: #FFFFFF;
+
+// https://typekit.com/kit_editor/kits/vbg7kfo
+@mixin sans-serif {
+  font-family: 'proxima-nova',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+
+// https://typekit.com/kit_editor/kits/vbg7kfo
+@mixin serif {
+  font-family: 'abril-text',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@mixin bold {
+  font-weight: 600;
+}
+
+html {
+  // To avoid FOUC, HTML is hidden until webpack loads
+  display:block !important;
+}
+
+body {
+  @include sans-serif;
+  background-color: $grey_light;
+  background-repeat: no-repeat;
+  background-position: top center;
+
+  @include breakpoint(large) {
+    background-size: 100% auto;
+  }
+
+  // different background images for each category
+  &.home {
+    background-image: url('img/background-01.jpg');
+    background-color: $white;
+  }
+  &.theme__support {
+    background-image: url('img/backgrounds/Bkgd-Feel-supported.jpg');
+  }
+  &.theme__experience {
+    background-image: url('img/backgrounds/Bkgd-Great-experience.jpg');
+  }
+  &.theme__understand {
+    background-image: url('img/backgrounds/Bkgd-Assignment-reqs.jpg');
+  }
+  &.theme__start {
+    background-image: url('img/backgrounds/Bkgd-Get-started.jpg');
+  }
+  // http://stackoverflow.com/questions/23610151/can-you-style-ordered-list-numbers
+  counter-reset: item;
+}
+
+a {
+  letter-spacing: -0.015em;
+}
+
+main {
+  padding: 5rem (20 / 16 * 1rem) 1rem;
+}
+
+.button {
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.title {
+  background-color: #262626;
+  color: white;
+  min-width:100%;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 970px;
+  padding: 0 20px;
+}
+
+.title-bar {
+  display: block;
+  margin: 0 auto;
+  max-width: 970px;
+  padding:1em;
+  text-align: right;
+
+  &:hover {
+    color: inherit;
+  }
+
+  > * {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+.title-bar-logo {
+  text-transform: uppercase;
+  font-weight: 600;
+  float: left;
+  width: (69px / 288px * 100%);
+  max-width: 115px;
+}
+
+.title-bar-text {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: (12/16) * 1em;
+
+  .home & i.fa { display: none; }
+}
+
+@include breakpoint(medium) {
+  .title-bar {
+    padding: (25/16) * 1em;
+    text-align: left;
+  }
+
+  .title-bar-text {
+    font-size: (13/16) * 1em;
+    line-height: (30/13);
+    padding-left: 70px;
+  }
+}
+
+@include breakpoint(large) {
+  .title-bar {
+    padding: ((25/16) * 1em) 0;
+  }
+}
+
+.white {
+  color: $white;
+}
+
+.brown_light {
+  color: $brown_light !important;
+}
+
+.blue {
+  color: $blue !important;
+}
+
+.brown {
+  color: $brown !important;
+}
+
+.red {
+  color: $red !important;
+}
+
+.purple {
+  color: $purple !important;
+}
+
+.serif {
+  @include serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @include sans-serif;
+  font-weight: 700;
+}
+
+hr {
+  border-color: $blue_light;
+}
+
+// styles for sections in other sub-pages
+.sub-page-content {
+  font-size: 14px;
+  @include breakpoint(medium) { font-size: 16px; }
+  .bar-section {
+    &--header {
+      background: $blue;
+      padding: 82px 0 0;
+
+      &--text {
+        color: $white;
+        margin: 0;
+        padding-bottom: 88px;
+        font-size: 24px;
+
+        @include breakpoint(medium) {
+          padding: 80px 0;
+          background: $white;
+          color: $blue;
+          font-size: 36px;
+        }
+      }
+    }
+  }
+
+  .heading {
+    margin-bottom: 75px;
+    h3, h6 {
+      color: $white;
+    }
+    h6 {
+      @include serif;
+    }
+  }
+
+  .time-slider {
+    font-size: 12px;
+    color: #767676;
+    margin: 0 0 20px;;
+  }
+
+  // http://stackoverflow.com/questions/23610151/can-you-style-ordered-list-numbers
+  ol {
+    list-style: none;
+    counter-reset: item;
+    margin: 0 0 1em;
+    li {
+      counter-increment: item;
+      margin-bottom: 5px;
+      line-height: 0.8rem;
+      p {
+        float: left;
+        display: block;
+        width:80%;
+      }
+    }
+    li:before {
+      float:left;
+      margin-right: 1rem;
+      content: counter(item);
+      font-weight: 600;
+      font-size: 2rem;
+      color: $blue_light;
+      border-right: 2px solid $grey_light;
+      width: 1.2em;
+      display: inline-block;
+      padding: 1rem 0.5rem 2rem 0;
+    }
+  }
+
+  a {
+    text-decoration: underline;
+    &.button,
+    &.callout { text-decoration: none;}
+  }
+
+  .icon-link {
+    color: #15306E;
+    text-decoration: none;
+    > span {
+      text-decoration: underline;
+    }
+  }
+
+  .callout {
+    h6 {
+      margin-top: 1rem;
+    }
+    p:first-of-type {
+      margin-top: 1rem;
+    }
+  }
+
+  .subheading {
+    margin-bottom: 30px;
+  }
+
+  h4,
+  .wysiwyg h4 {
+    margin: 20px 0 30px;
+  }
+
+  .wysiwyg p + h4 {
+    margin-top: 80px;
+  }
+
+  .related {
+    border-top: none;
+    -webkit-box-shadow: inset 0px 0px 0px 0px rgba(255,255,255,1);
+    -moz-box-shadow: inset 0px 0px 0px 0px rgba(255,255,255,1);
+    box-shadow: inset 0px 0px 0px 0px rgba(255,255,255,1);
+    // background-repeat: no-repeat;
+    h2 {
+      color: $white;
+    }
+    a.nav {
+      display: block;
+      margin-top: 1rem;
+      border:1px solid $white;
+      text-decoration: none;
+      padding: (32/24*1em);
+      color: white;
+      font-size: 21px;
+      font-weight: 600;
+      i.fa {
+        margin-right: 1rem;
+      }
+      &:hover {
+        background-color: #15306E;
+      }
+
+      @include breakpoint(medium) {
+        font-size: 24px;
+      }
+
+    }
+  }
+  // .theme__support & .related {
+  .related {
+    padding: 80px 0;
+    background-image: url('img/background-01.jpg');
+    background-size: 100% auto;
+
+    h1 {
+      color: $white;
+      margin-bottom: 80px;
+      font-size: 21px;
+      line-height: (27/21);
+    }
+
+    @include breakpoint(medium) {
+      background-size: cover;
+
+      h1 { font-size: 48px; }
+    }
+  }
+}
+
+section {
+
+  form {
+    h5 {
+      @include serif;
+    }
+    fieldset {
+      background: transparent !important;
+      margin-bottom: 40px;
+    }
+  }
+
+  .callout {
+    display: block;
+    margin-bottom: 20px;
+    border-top: 10px solid $blue;
+    // make figure snap to edges of container
+    // that normally has some padding
+    padding-top:0;
+    .arrow {
+      width: 50px;
+      height: 46px;
+      background: $blue;
+      display: inline-block;
+      position:absolute;
+      bottom:0;
+      right:0;
+      color: white;
+      padding:0.25rem 0.5rem;
+      opacity: 0.8;
+      transition: opacity .2s ease-out;
+      -moz-transition: opacity .2s ease-out;
+      -webkit-transition: opacity .2s ease-out;
+      -o-transition: opacity .2s ease-out;
+
+      &:before {
+        content: "";
+        display: block;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 23px 25px;
+        border-color: $white transparent transparent $white;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      svg {
+        position: absolute;
+        bottom: 9px;
+        right: 8px;
+      }
+    }
+    h4 {
+      margin: 0;
+    }
+    h4,
+    h5 {
+      font-size: 21px;
+      line-height: (27/21);
+      a {
+        color: inherit;
+      }
+    }
+    h6 {
+      font-weight: 400;
+      text-transform: uppercase;
+      font-size: 12px;
+      line-height: 2;
+      margin: 0;
+    }
+    small {
+      padding-right: 5%;
+      text-indent: -0.025em;
+      display: block;
+      font-size: 10px;
+      line-height: (15/10);
+      color: #767676;
+      position: relative;
+    }
+    figure {
+      width: calc(100% + 2rem);
+      margin:0 0 1rem -1rem;
+      background: none;
+      img {
+        opacity: 0.7;
+        transition: opacity .2s ease-out;
+        -moz-transition: opacity .2s ease-out;
+        -webkit-transition: opacity .2s ease-out;
+        -o-transition: opacity .2s ease-out;
+      }
+    }
+    p {
+      &:first-of-type {
+        margin-top: 0 !important;
+      }
+      margin-bottom: 0.8em;
+      font-size: 14px;
+      line-height: (21/14);
+    }
+
+    &:hover {
+      color: inherit;
+
+      .arrow { opacity: 1; }
+      figure img { opacity: 0.8; }
+    }
+
+    @include breakpoint(medium) {
+      margin-bottom: 40px;
+      padding: 0 40px 40px;
+
+      figure {
+        width: calc(100% + 80px);
+        margin:0 0 40px -40px;
+      }
+
+      h4, h5 { font-size: 24px; }
+      p { font-size: 16px; }
+      small { font-size: 12px; }
+    }
+  }
+
+  blockquote {
+    padding: 10px 15px 0;
+    margin: 0 15px;
+    border:none;
+    font-size: 15px;
+    line-height: (22/15);
+    color: $blue_light;
+    @include serif;
+    font-weight: 300;
+    background-image: url('img/blockquote.svg');
+    background-repeat: no-repeat;
+    background-size: 45px;
+
+    @include breakpoint(medium) {
+      padding: 20px 20px 0;
+      margin: 40px 20px;
+      font-size: 24px;
+      background-size: 73px;
+    }
+  }
+
+  // make bios with images have circle cropping
+  // http://sixrevisions.com/css/circular-images-css/
+  .media-object {
+    // border:1px solid red;
+    .media-object-section {
+      padding-left: 1rem;
+      &:first-of-type {
+        overflow: hidden;
+        width: 60px;
+        height: 60px;
+        padding-right: 0;
+        padding-left: 0;
+        img {
+          // border:1px solid green;
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+        }
+      }
+      // border:1px solid pink;
+    }
+  }
+
+  blockquote + .media-object {
+    padding: 1rem;
+  }
+
+  h3 {
+    color: $grey_dark;
+    @include serif;
+  }
+}
+
+.category {
+  border-top: 10px solid $grey_medium;
+  margin: 0 -20px 20px;
+  padding: 30px 20px;
+  background-color: $white;
+
+  .alt-heading {
+    margin: 0 0 20px;
+  }
+
+  @include breakpoint(medium) {
+    margin: 0 0 40px;
+    padding: 30px 40px;
+  }
+
+  .home & {
+    background-color: #F3F3F3;
+  }
+
+  &.theme__support,
+  .theme__support & {
+    border-top-color: $blue_light;
+  }
+  &.theme__experience,
+  .theme__experience & {
+    border-top-color: $purple;
+  }
+  &.theme__understand,
+  .theme__understand & {
+    border-top-color: $brown_light;
+  }
+  &.theme__start,
+  .theme__start & {
+    border-top-color: $red;
+  }
+
+  figure {
+    margin: 0 0 30px;
+  }
+
+  &__padded {
+    margin-bottom: 0;
+    padding-bottom: 60px;
+    @include breakpoint(medium) {
+      padding-top: 80px;
+      padding-left: 76px;
+      padding-right: 76px;
+
+      figure {
+        margin-bottom: 75px;
+      }
+    }
+  }
+
+  &__post-header {
+    border-top: 0;
+
+    @include breakpoint(medium) {
+      padding-top: 10px;
+    }
+  }
+
+  &__standalone {
+    border-top: 0;
+    background: $grey_light;
+
+    @include breakpoint(medium) {
+      padding-top: 40px;
+    }
+  }
+}
+
+.theme__support,
+body .theme__support {
+  .alt-heading {
+    color: $blue_light;
+  }
+  h5 {
+    color: $blue;
+  }
+  .sub-page-content .bar-section--header,
+  .callout .arrow {
+    background-color: $blue;
+  }
+  .callout {
+    border-top-color: $blue;
+  }
+
+  @include breakpoint(medium) {
+    .sub-page-content .bar-section--header--text {
+      color: $blue;
+    }
+  }
+
+}
+
+.theme__experience,
+body .theme__experience {
+  .alt-heading {
+    color: $purple;
+  }
+  h5 {
+    color: $purple;
+  }
+  .sub-page-content .bar-section--header,
+  .callout .arrow  {
+    background-color: $purple;
+  }
+  .callout {
+    border-top-color: $purple;
+  }
+
+  @include breakpoint(medium) {
+    .sub-page-content .bar-section--header--text {
+      color: $purple;
+    }
+  }
+}
+
+.theme__understand,
+body .theme__understand {
+  .alt-heading {
+    color: $brown;
+  }
+  h5 {
+    color: $brown;
+  }
+  .sub-page-content .bar-section--header,
+  .callout .arrow {
+    background-color: $brown;
+  }
+  .callout {
+    border-top-color: $brown;
+  }
+
+  @include breakpoint(medium) {
+    .sub-page-content .bar-section--header--text {
+      color: $brown;
+    }
+  }
+}
+
+.theme__start,
+body .theme__start {
+  .alt-heading {
+    color: $red;
+  }
+  h5 {
+    color: $red;
+  }
+  .sub-page-content .bar-section--header,
+  .callout .arrow  {
+    background-color: $red;
+  }
+  .callout {
+    border-top-color: $red;
+  }
+
+  @include breakpoint(medium) {
+    .sub-page-content .bar-section--header--text {
+      color: $red;
+    }
+  }
+}
+
+.tabs {
+  .tabs-title {
+
+    border:2px solid $white;
+    color: $white;
+    opacity: 0.3;
+    border-radius: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+
+    // make tabs centered
+    // http://zurb.com/building-blocks/centered-tabs-titles
+    display: inline-block;
+    float: none;
+
+    @include bold;
+    a {
+      color: inherit;
+    }
+    &.is-active, &:hover {
+      border-color: transparent;
+      background-color: $brown_light;
+      color: $white;
+      opacity: 1;
+      transition: opacity .3s ease-out;
+      -moz-transition: opacity .3s ease-out;
+      -webkit-transition: opacity .3s ease-out;
+      -o-transition: opacity .3s ease-out;
+    }
+  }
+  // http://foundation.zurb.com/sites/docs/media-queries.html
+  @include breakpoint(small down) {
+    .tabs-title {
+      display: block;
+    }
+  }
+}
+
+.copy {
+  font-size: (14/16) * 1rem;
+
+  &__large {
+    font-size: (18/16) * 1rem;
+  }
+
+  &__citation {
+    padding: 10px 15px 0;
+    margin: 0 15px;
+    font-size: (12/16) * 1rem;
+  }
+
+  @include breakpoint(medium) {
+    font-size: (16/16) * 1rem;
+
+    &__large {
+      font-size: (21/16) * 1rem;
+    }
+
+    &__citation {
+      margin: 0 25px;
+      font-size: (14/16) * 1rem;
+    }
+  }
+
+  @include breakpoint(large) {
+    font-size: (18/16) * 1rem;
+
+    &__large {
+      font-size: (24/16) * 1rem;
+    }
+
+    &__citation {
+      font-size: (16/16) * 1rem;
+    }
+  }
+}
+
+.alt-heading {
+  font-family: 'abril-text';
+  font-weight: normal;
+}
+
+.breakdown {
+  margin-bottom: 40px;
+
+  &--title {
+    margin: 0;
+    font-size: 21px;
+    line-height: (27/21);
+    color: #15306E;
+    @include breakpoint(medium) {
+      font-size: 24px;
+    }
+  }
+  &--subtitle {
+    font-size: 12px;
+    margin-bottom: 0;
+    color: #767676;
+  }
+  &--table {
+
+    img {
+      width: 100%;
+    }
+
+    .breakdown &--title {
+      text-transform: uppercase;
+      color: inherit;
+      font-size: 14px;
+      margin-top: 40px;
+
+      @include breakpoint(medium) {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+// callout extension
+.callout.dark-callout {
+  display: block;
+  background: $grey_light;
+  padding: 20px;
+  border-top-width: 4px;
+  font-size: 14px;
+  line-height: (21/14);
+
+  label {
+    margin: 0 0 0.5em;
+    input { margin-bottom: 0; }
+  }
+
+  .input-active {
+    margin-left: -0.5em;
+    margin-right: -0.5em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    background: #ffffff;
+    border-radius: 5px;
+  }
+
+  &.dark-callout__section {
+    border-top: 0;
+    margin-bottom: 30px;
+
+    h4 {
+      margin: (60 / 27 * 1em) 0 (40 / 27 * 1em);
+    }
+
+
+  }
+
+  &.dark-callout__with-img {
+    margin-top: 20px;
+    padding-top: 60px;
+    position: relative;
+    min-height: 0;
+
+    > .dark-callout--img {
+      width: 60px;
+      height: 60px;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      margin-top: -11px;
+      margin-left: -30px;
+    }
+
+    @include breakpoint(medium) {
+      font-size: 16px;
+
+      > .dark-callout--img {
+        margin-top: -15px;
+      }
+    }
+  }
+
+  .button[disabled] {
+    opacity: 1;
+    color: #15306E;
+    background-color: rgba(#15306E, 0.25);
+  }
+
+  @include breakpoint(medium) {
+    padding: 38px 38px 38px;
+    min-height: 164px;
+  }
+}
+
+// row extension
+.row.no-indent {
+  margin-left: -10px;
+  margin-right: -10px;
+
+  @include breakpoint(medium) {
+    margin-left: -20px;
+    margin-right: -20px;
+  }
+}
+
+body .wysiwyg {
+  h4 {
+    font-size: 21px;
+    margin-bottom: (40/24) * 1em;
+  }
+
+  p + h4,
+  ul + h4 {
+    margin-top: (80/24) * 1em;
+  }
+
+  ul, ol {
+    > li {
+      margin-bottom: 1.5em;
+    }
+  }
+
+  ul {
+    list-style: none;
+    > li {
+      text-indent: -0.6em;
+    }
+    > li:before {
+      content: "\2022";
+      margin-top: -1px;
+      margin-right: 0.4em;
+      display: inline-block;
+      vertical-align: top;
+      font-size: 1.5em;
+      line-height: 1;
+      color: #2F6CA9;
+    }
+  }
+
+  &.wysiwyg__section {
+    margin-top: 70px;
+  }
+
+  @include breakpoint(medium) {
+    h4 {
+      font-size: 24px;
+    }
+
+  }
+}
+
+.u-rounded-img {
+  border-radius: 50%;
+}
+
+.u-hidden {
+  display: none;
+}

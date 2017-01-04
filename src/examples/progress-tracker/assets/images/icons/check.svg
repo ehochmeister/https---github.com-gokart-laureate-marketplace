@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="24px" height="20px" viewBox="0 0 24 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <title>Path</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="169.289855 12 172 14.7310924 158.815169 28 152 21.140056 154.710145 18.4089636 158.815169 22.5378151"></polygon>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="-1" y="-1" width="22" height="18">
+            <rect x="151" y="11" width="22" height="18" fill="white"></rect>
+            <use xlink:href="#path-1" fill="black"></use>
+        </mask>
+    </defs>
+    <g id="v6-Mobile-" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-Home" transform="translate(-335.000000, -817.000000)">
+            <g id="Tabs" transform="translate(175.000000, 141.000000)">
+                <g id="Course-Progress" transform="translate(0.000000, 548.000000)">
+                    <g id="Weeks" transform="translate(0.000000, 89.000000)">
+                        <g id="Week-1" transform="translate(10.000000, 0.000000)">
+                            <g id="Item-cards" transform="translate(0.000000, 17.000000)">
+                                <g id="Quiz-1">
+                                    <g id="Hatches-cropped-Copy" transform="translate(0.000000, 12.000000)">
+                                        <g id="Path">
+                                            <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                                            <use stroke="#333333" mask="url(#mask-2)" stroke-width="2" xlink:href="#path-1"></use>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

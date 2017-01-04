@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Course Progress Tracker</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,600,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.4/foundation-flex.min.css" integrity="sha256-xH4JDpuOAx3sYKtP3vwkpt8vqzZ65AsLX7bfrPHXMTk=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="assets/css/app.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body id="app">
+
+  <!-- Google Tag Manager -->
+  <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-XXXXXX"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-WV2785');</script>
+  <!-- End Google Tag Manager -->
+
+  <div v-if="course_id === null">
+    <div class="row">
+      <div class="small-8 medium-4 large-3 columns small-centered" style="margin:2em auto;">
+        <div class="callout text-center">
+          <p>Error: No course ID specified.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div v-if="course_id === false">
+    <div class="row">
+      <div class="small-8 medium-4 large-3 columns small-centered" style="margin:2em auto;">
+        <div class="callout text-center">
+          <p>Sorry, no data available for this course ID.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="off-canvas-wrapper" v-if="course_id">
+    <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+      <nav class="off-canvas position-right" id="offCanvasRight" data-off-canvas  data-position="right">
+
+        <button class="close-button" aria-label="Close menu" type="button" data-close>
+          <span aria-hidden="true">&times;</span>
+        </button>
+
+        <ul class="side-nav primary">
+          <li v-if="back_to_blackboard"><a href="javascript:void(0)" onclick="ActivateLink('CourseHome', null, this)" class="back-to-class-home">Back to Blackboard</a></li>
+        </ul>
+
+        <ul v-for="section in navigation" class="side-nav secondary">
+          <li v-for="link in section">
+            <a :href="link.href" v-text="link.label"></a>
+          </li>
+        </ul>
+
+        <ul class="side-nav tertiary">
+          <li v-if="back_to_blackboard"><a href="javascript:void(0)" onclick="ActivateLink('CourseHome', null, this)" class="back-to-class-home">Back to Blackboard</a></li>
+          <li v-if="help_link"><a :href="help_link">Help</a></li>
+        </ul>
+
+      </nav>
+
+      <div class="off-canvas-content" data-off-canvas-content>
+
+        <div>
+          <header class="global-header">
+            <!-- GLOBAL HEADER -->
+
+            <div class="row align-middle small-uncollapse medium-uncollapse large-collapse global-header-content">
+
+              <nav class="small-10 medium-3 columns">
+                <a href="#" style="display: inline-block; color:inherit; padding: 10px 20px; box-sizing: border-box;">
+                  <img src="assets/images/logos/universal.png" alt="Universal University" style="max-width: 100%; max-height: 30px; width: auto; height: auto;" />
+                </a>
+              </nav>
+
+              <nav class="medium-8 columns hide-for-small-only" >
+                <div class="row" v-if="course_id">
+                  <div class="shrink columns">
+                    <span class="course-title" v-text="course_id"></span>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="shrink columns">
+                    <ul class="menu">
+                      <li><strong>Progress Tracker</strong> <span class="label__beta hide">Beta Phase 2</span></li>
+                      <li><a href="#dashboard" class="menu-item" v-on:click="onNavClick($event)">Dashboard</a></li>
+                      <li v-if="course_has_started && show_course_progress"><a href="#course-progress" class="menu-item" v-on:click="onNavClick($event)">Course Progress</a></li>
+                      <li v-if="course_has_started && show_all_items"><a href="#all-items" class="menu-item" v-on:click="onNavClick($event)">All Items</a></li>
+                      <li><a href="#help" class="menu-item" v-on:click="onNavClick($event)">Helpful Links</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+
+              <nav class="small-2 medium-1 small-text-center columns">
+                <div class="">
+                  <button class="menu-icon" type="button" data-open="offCanvasRight"></button>
+                </div>
+              </nav>
+
+            </div><!-- /.row -->
+
+            <nav class="hide-for-medium collapsed">
+              <div class="row">
+                <div class="column small-7 text-right">
+                  <span class="course-title divider" v-text="course_name"></span>
+                </div>
+                <div class="column small-5">
+                  <button class="selected" data-href="#dashboard" data-position="0" v-on:click="onExpandingMenuClick($event)">Dashboard</button>
+                  <ul class="menu">
+                    <li><a href="#dashboard" class="menu-item">Dashboard</a></li>
+                    <li v-if="course_has_started && show_course_progress"><a href="#course-progress" class="menu-item">Course Progress</a></li>
+                    <li v-if="course_has_started && show_all_items"><a href="#" class="menu-item">All Items</a></li>
+                    <li><a href="#help" class="menu-item">Helpful Links</a></li>
+                  </ul>
+                </div>
+
+              </div><!-- /.row -->
+            </nav>
+
+          </header><!-- /.global-header -->
+
+          <main class="content-wrap">
+
+            <div class="row" id="dashboard">
+              <div class="medium-12 medium-centered">
+                <div class="content-block">
+                  <div class="row">
+                    <div class="column small-12 medium-6 large-5">
+                      <h2 class="hdg hdg__h1">Dashboard</h2>
+                    </div>
+                    <div class="column small-12 medium-6 large-7" v-if="course_has_started">
+                      <div class="current-week-assignments">
+                        <status-key v-if="!course_has_ended"></status-key>
+
+                        <template v-if="debug">
+                          <p class="course-info label secondary debug"><strong>Debug: Today's Date:</strong> {{ current_date | datestamp }}</p><br clear="all" />
+                          <p class="course-info label secondary debug"><strong>Debug: Course Starts:</strong> {{ course_start_date | datestamp }}</p><br clear="all" />
+                          <p class="course-info label secondary debug"><strong>Debug: Course Ends:</strong> {{ course_end_date | datestamp}}</p>
+                        </template>
+
+                        <p class="course-info" v-if="course_has_started && !course_has_ended">
+                          <span>
+                            <span class="week-number"><strong>Week {{ current_week_number }}</strong>&nbsp;&nbsp;</span>
+                            <span class="week-range">{{ current_date | startofweek }} - {{ current_date | endofweek }} (Current Week)</span>
+                            <span class="days-remaining"><strong clas="days-remaining-days">{{ course_days_remaining }} day<span v-if="course_days_remaining > 1 || course_days_remaining===0">s</span></strong> left in the course</span>
+                          </span>
+                        </p>
+
+                        <p class="course-info course-has-ended" v-if="course_has_ended"><strong>This course has ended.</strong></p>
+
+                        <p class="items-due-week" v-if="!course_has_ended"><strong>ITEMS DUE THIS WEEK</strong> ({{ submittedAssessmentsDueThisWeek.length }} of {{ assessmentsDueThisWeek.length }} items submitted)</p>
+
+                        <template v-if="course_has_started">
+                            <template v-for="assessment in assessmentsDueThisWeek">
+                              <template v-if="assessment.status==='MISSED'">
+                                <div class="assignment pattern pattern__fail" v-bind:style="{ width: (assessment.maximumPoints*0.5)+ 'px' }" :title="assessment.name"></div>
+                              </template>
+                              <template v-if="assessment.status==='OVERDUE'">
+                                <div class="assignment pattern pattern__danger" v-bind:style="{ width: (assessment.maximumPoints*0.5)+ 'px' }" :title="assessment.name"></div>
+                              </template>
+                              <template v-if="assessment.status==='SUBMITTED'">
+                                <div class="assignment pattern pattern__success" v-bind:style="{ width: (assessment.maximumPoints*0.5)+ 'px' }"><img src="assets/images/icons/check.svg" / :title="assessment.name"></div>
+                              </template>
+                              <template v-if="assessment.status==='UNSUBMITTED'">
+                                <div class="assignment pattern pattern__pending" v-bind:style="{ width: (assessment.maximumPoints*0.5)+ 'px' }" :title="assessment.name"></div>
+                              </template>
+                            </template>
+                          </template>
+                        </template>
+                      </div>
+
+                      </div>
+
+                    </div><!-- /.column medium-6 large-7 -->
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+            <div id="dashboard-content">
+              <div class="row" v-if="!course_has_started">
+                <div class="small-12 medium-12 medium-centered">
+                  <div class="content-block content-block__no-bottom">
+                    <p v-if="course_start_date">This course begins on {{ course_start_date.format('dddd, MMMM D, YYYY') }}.</p>
+                    <p class="secondary" style="color:white;opacity:0.5;" v-if="debug"><strong>Debug: Today's Date:</strong> {{ current_date.format('dddd, MMMM Do YYYY, h:mm A') }}</p>
+
+                    <br clear="all" />
+                  </div>
+                </div>
+              </div>
+              <div class="row" v-if="course_has_started && !course_has_ended">
+                <div class="small-12 medium-12 medium-centered">
+
+                  <div class="content-block content-block__no-bottom">
+                    <div class="row">
+                      <div class="column small-12 medium-6 large-5">
+                        <h3 class="hdg hdg__h2">Items Due In the Next Five Days</h3>
+                      </div>
+                      <div class="column small-12 medium-6 large-7">
+                        <status-key></status-key>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="content-block content-block__flush-mobile">
+                    <table class="class-table stack">
+                     <thead>
+                       <tr>
+                         <th></th>
+                         <th>Item Name</th>
+                         <th>Due Date</th>
+                         <th>Status</th>
+                         <th>Max PTS</th>
+                         <th></th>
+                       </tr>
+                     </thead>
+                     <tbody>
+                       <template v-for="(index, assignment) in assessmentsDueSoon">
+                        <assignment-row :debug="debug" :assignment="assignment" :current_week_number="current_week_number" context="dashboard" :week="weeks[assignment.weekNumber]"></assignment-row>
+                      </template>
+                    </tbody>
+                  </table>
+                  <div v-if="!assessmentsDueSoon.length">
+                    <p>You have nothing due in the next five days.</p>
+                  </div>
+                  <br clear="all" />
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+            <div id="course-progress" v-if="course_has_started && show_course_progress">
+              <div class="row">
+                <div class="medium-12 medium-centered">
+
+                  <div class="content-block">
+                    <div class="row">
+                      <div class="column medium-6 large-5">
+                        <h2 id="all-items" class="hdg hdg__h1">Course Progress</h2>
+                      </div>
+                      <div class="column small-12 medium-6 large-7">
+                        <status-key></status-key>
+                        <!-- <span class="tagline">Last Modified {{ current_date }} </span> -->
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="content-block content-block__flush-mobile">
+
+                    <table class="class-table stack">
+                     <thead>
+                       <tr>
+                         <th></th>
+                         <th>Item Name</th>
+                         <th>Due Date</th>
+                         <th>Status</th>
+                         <th>Max PTS</th>
+                         <th></th>
+                       </tr>
+                     </thead>
+                     <tbody>
+                       <template v-for="(index, assignment) in assessments">
+                        <assignment-row :debug="debug" :assignment="assignment" :current_week_number="current_week_number" context="course-progress" :week="weeks[assignment.weekNumber]"></assignment-row>
+                      </template>
+                    </tbody>
+                  </table>
+
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <div id="all-items" v-if="course_has_started && show_all_items">
+            <div class="row">
+              <div class="medium-12 medium-centered">
+
+                <div class="content-block">
+                  <div class="row">
+                    <div class="column medium-6 large-5">
+                      <h2 id="all-items" class="hdg hdg__h1">All Items</h2>
+                    </div>
+                    <div class="column small-12 medium-6 large-7">
+                      <status-key></status-key>
+                      <!-- <span class="tagline">Last Modified {{ current_date }} </span> -->
+                    </div>
+                  </div>
+                </div>
+
+                <div class="content-block content-block__flush-mobile">
+
+                  <table class="class-table stack">
+                   <thead>
+                     <tr>
+                       <th></th>
+                       <th>Item Name</th>
+                       <th>Due Date</th>
+                       <th>Status</th>
+                       <th>Max PTS</th>
+                       <th></th>
+                     </tr>
+                   </thead>
+                   <tbody>
+                     <template v-for="(index, assignment) in assessments">
+                      <assignment-row :debug="debug" :assignment="assignment" :current_week_number="current_week_number" context="all-items" :week="weeks[assignment.weekNumber]"></assignment-row>
+                    </template>
+                  </tbody>
+                </table>
+
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div id="support-content">
+          <div class="row">
+            <div class="medium-12 medium-centered">
+
+              <div class="content-block">
+                <h2 id="help" class="hdg hdg__h1">Helpful Links</h2>
+
+                <div class="row">
+
+                  <aside class="small-12 medium-6 columns">
+                    <h3>Library</h3>
+                    <div class="callout">
+                      <p>The Universal University Library supports the educational goals and research needs of students, faculty, and staff. We provide access to resources, instruction, and services necessary for academic success.</p>
+                      <a href="#" class="btn btn__external learn-more">Learn More</a>
+                    </div>
+                  </aside>
+
+                  <aside class="small-12 medium-6 columns">
+                    <h3>Sync Your Calendar</h3>
+                    <div class="callout">
+                      <p>We know Universal University students are often balancing busy schedules&mdash;use this handy calendar syncing tool to quickly and easily add your Universal University course schedule into your favorite calendar tool.</p>
+                      <a href="javascript:void(0)" class="btn btn__external learn-more">Learn More</a>
+                    </div>
+                  </aside>
+
+                  <aside class="small-12 medium-6 columns end">
+                    <h3>Writing Center</h3>
+                    <div class="callout">
+                      <p>The Universal University Writing Center provides a broad range of writing instruction and editing services for all students at Universal University, including writing assistance for undergraduates, graduate students, and capstone writers. The center also offers writing support for faculty.</p>
+                      <a href="#" class="btn btn__external learn-more">Learn More</a>
+                    </div>
+                  </aside>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </main>
+      </div>
+
+    </div> <!-- /.off-canvas-content -->
+  </div> <!-- /.off-canvas-wrapper-inner -->
+</div> <!-- /.off-canvas-wrapper -->
+
+<template id="assignment-row">
+
+  <!-- <tr v-show="true">
+    <td colspan="6" v-text="assignment | json"></td>
+  </tr> -->
+
+  <!-- Week Header for Dashboard Context -->
+  <tr v-if="context==='dashboard' && lastshown() && week.hasItemsDueSoon" class="class-table--week">
+    <td colspan="6">
+      <div class="class-table--week-label">
+        <strong>Week {{ assignment.weekNumber }} <span v-if="debug">/ {{ assignment.due.isoWeek() }}</span></strong>
+        <span v-text="assignment.due | startofweek"></span> &ndash; <span v-text="assignment.due | endofweek"></span>
+        <span v-if="assignment.weekNumber === current_week_number">(Current Week)</span>
+      </div>
+    </td>
+  </tr>
+
+  <!-- Week Header for Course Progress Context -->
+  <tr v-if="context=='course-progress' && lastshown()" class="class-table--week" v-bind:class="[assignment.weekNumber == current_week_number ? 'class-table--week__active' : '']">
+    <td colspan="6">
+      <div class="class-table--week-label">
+        <strong>Week {{ assignment.weekNumber }} <span v-if="debug">/ {{ assignment.due.isoWeek() }}</span></strong>
+        <span v-text="assignment.due | startofweek"></span> &ndash; <span v-text="assignment.due | endofweek"></span>
+        <span v-if="assignment.weekNumber === current_week_number">(Current Week)</span>
+      </div>
+    </td>
+  </tr>
+
+  <!-- Week Header for All Items Context -->
+  <tr v-if="context=='all-items' && lastshown()" class="class-table--week" v-bind:class="[assignment.weekNumber == current_week_number ? 'class-table--week__active' : '']">
+    <td colspan="6">
+      <div class="class-table--week-label">
+        <strong>Week {{ assignment.weekNumber }} <span v-if="debug">/ {{ assignment.due.isoWeek() }}</span></strong>
+        <span v-text="assignment.due | startofweek"></span> &ndash; <span v-text="assignment.due | endofweek"></span>
+      </div>
+    </td>
+  </tr>
+
+  <tr v-if="contextToggle(context,assignment)" :data-content-id="assignment.id">
+    <td v-if="assignment.status=='MISSED'" class="class-table--pattern"><div class="class-table--status"><div class="pattern pattern__fail"></div></div></td>
+    <td v-if="assignment.status=='OVERDUE'" class="class-table--pattern"><div class="class-table--status"><div class="pattern pattern__danger"></div></div></td>
+    <td v-if="assignment.status=='SUBMITTED'" class="class-table--pattern"><div class="class-table--status"><div class="pattern pattern__success"><img src="assets/images/icons/check.svg" /></div></div></td>
+    <td v-if="assignment.status=='UNSUBMITTED'" class="class-table--pattern"><div class="class-table--status"><div class="pattern pattern__pending"></div></div></td>
+
+    <td class="class-table--course-name">{{ assignment.name }} <!-- <code>ISO Week {{ assignment.due.isoWeek() }}</code> --></td>
+    <td class="class-table--due-date" v-text="assignment.due | timestamp"></td>
+
+    <td><tooltip-trigger-button :assignment="assignment"></tooltip-trigger-button></td>
+
+    <td class="class-table--pts" v-text="assignment.maximumPoints"></td>
+    <td class="class-table--action medium-text-right">
+      <a v-if="assignment.deep_link || assignment.href" :data-content-id="assignment.id" :data-deep-link="assignment.deep_link" :href="assignment.href" target="_blank" rel="noopener" class="btn btn__external" v-on:click="workOnItem($event,assignment)">View item</a>
+    </td>
+  </tr>
+</template>
+
+<template id="tooltip-trigger-button">
+  <button type="button" class="details v-tooltip--trigger" v-on:click="tooltip">
+    <span v-text="assignment.status | lowercase | capitalize"></span>
+    <template v-if="assignment.status=='OVERDUE' || assignment.status=='MISSED' || assignment.type=='discussion'">
+      <svg width="14" height="14" viewBox="44 1 14 14" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" transform="translate(45 2)"><circle stroke-width="2" cx="6" cy="6" r="6"/><path d="M7 9l-.167-3.5H5.167L5 9zM6 4.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/></g></svg>
+      <late-policy :assignment="assignment"></late-policy>
+    </template>
+  </button>
+</template>
+
+<template id="late-policy-template">
+  <div class="v-tooltip" v-if="assignment.type=='discussion'">
+    <p><strong>Discussion requirements for full credit:</strong></p>
+    <p>1) Post your initial response by {{ assignment.due | timestamp }}</p>
+    <p>2) Reply to at least two of your colleagues’ posts by the date specified in the assignment.</p>
+    <p>The Course Progress Tracker can't detect if you've done both of these items, so you need to make sure they are completed. </p>
+  </div>
+  <div class="v-tooltip" v-if="assignment.type=='assignment'">
+    <p>Partial Credit:</p>
+    <ul>
+      <li>
+         <p>You may still be able to receive credit or partial credit for this assignment. Please see the Walden Student Handbook or the <strong>Guidelines and Policies</strong> area of this classroom for more information about Walden's standard policy on the acceptance and grading of late assignments.</p>
+      </li>
+    </ul>
+  </div>
+</template>
+
+<template id="status-key-template">
+  <div class="status-key">
+    <div class="status-key--title">Key</div>
+    <ul class="status-key--list">
+      <li class="status-key--item">
+        <div class="status-key--box"><div class="pattern pattern__success"></div></div>
+        <div class="status-key--label">Submitted</div>
+      </li>
+      <li class="status-key--item">
+        <div class="status-key--box"><div class="pattern pattern__pending pattern__box"></div></div>
+        <div class="status-key--label">Not Submitted</div>
+      </li>
+      <li class="status-key--item">
+        <div class="status-key--box"><div class="pattern pattern__danger"></div></div>
+        <div class="status-key--label">Overdue</div>
+      </li>
+      <li class="status-key--item">
+        <div class="status-key--box"><div class="pattern pattern__fail"></div></div>
+        <div class="status-key--label">Missed</div>
+      </li>
+    </ul>
+  </div>
+</template>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/0.7.22/webcomponents.min.js" integrity="sha256-AQNED1DaNI8CK9dhkVud3qXo3CFxLxo7d4FyM0eQIqY=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.4/foundation.min.js" integrity="sha256-6Po73qUOfEfrvKtDy88HN0Xx6wjx3ZlngccJjsIVpIg=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.27/vue.js" integrity="sha256-XvqERjwYP/au7bmDJBrdV1n0YkBf6f0aVWuHf0WgLQ0=" crossorigin="anonymous"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.27/vue.min.js" integrity="sha256-YogPEJrkzG2snap/2pnd2a0pToC4ox5KfDyQY+Om1o0=" crossorigin="anonymous"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.0.3/vue-resource.min.js" integrity="sha256-r1pzeA1LCRPQD9oeuNDP4T8ftytq7waSglmmISCfE9I=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js" integrity="sha256-4PIvl58L9q7iwjT654TQJM+C/acEyoG738iL8B8nhXg=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.5/moment-timezone-with-data-2010-2020.min.js" integrity="sha256-ZnX9xrU6Ph1P8gKxZLM7Tkg9o5kIReExQrgT4MCJCLc=" crossorigin="anonymous"></script>
+<script src="assets/js/vendor/walden/app.js"></script>
+<script src="assets/js/app.js"></script>
+
+</body>
+</html>

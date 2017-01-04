@@ -1,0 +1,216 @@
+extends templates/layout.pug
+
+block variables
+  //- Setting body_class changes the overall color of the page
+  //- body_class options: 'category-support', 'category-experience', 'category-understand', 'category-start'
+  - var body_class = 'category-support theme__experience'
+
+block title
+  title Change management
+
+block sub-page-content
+  .row.heading
+    .medium-8.columns.medium-centered.text-center.white
+      h6 Remove friction for a great online experience
+      h1 Change management
+
+  section.container
+    .category.category__padded
+      figure
+        img(src='assets/img/screenshots/Top-Change-management@2x.png')
+      p.copy.copy__large Change management helps students understand and adapt to revisions in the way their digital learning is delivered or managed.  It sets an expectation in advance of the user or student encountering the situation, and communicates the purpose of the update to help the user understand potential benefits to them.
+      blockquote NEED A QUOTE
+      .copy.copy__citation
+        p
+          | Vanessa Ives, English Literature
+          br
+          | University of Roehampton, London
+
+  section.bar-section
+    .bar-section--header
+      .container
+        h3.bar-section--header--text.text-center Process overview
+    .container
+      .category.category__padded.category__post-header
+        .wysiwyg
+          h4 Considerations for implementation
+          p The purpose of change management is to remove friction around student (or faculty) adoption of new processes or expereinces they're going to have in the course of their digital learning experience.  Proper change management can increase utilization of new features, by informing users of potential benefits and how they might engage, and decrease friction for users integrating a new process or functionality into their routine, by introduce the change to students in advance, so that by the time they encountered the new experience on Day 1 of the class, they wouldn't have to spend time getting familar.
+          h4 Additional considerations
+          ul
+            li Improve adoption of new element by helping students understand the benefit to them and how to utilize.
+            li Use classroom announcement or email.
+          //- h4 Recommended processes
+          //- ul
+            li Faculty and student onboarding
+            li Feedback interviews or survey
+
+  section.bar-section
+    .bar-section--header
+      .container
+        h3.bar-section--header--text.text-center Early implementation case study
+    .container
+      .category.category__padded.category__post-header
+        .wysiwyg
+          h4 Institutional requirements
+          p The need for change management was highlighted by early feedback from UX framework pilots, where students mentioned the new experience was &lsquo;great, but took me time getting used to it.&rsquo;  Welcome email sent in new classroom design, that linked to a webpage also in the new design that gave an overview of the new format and highighted the benefits.
+          h4 Complexity
+        .breakdown
+          h5.breakdown--title Low&ndash;Medium
+          p.breakdown--subtitle
+            em Based on time, required skills and reach.
+          .breakdown--table
+            .row.no-indent
+              .medium-4.columns
+                h5.breakdown--table--title Time
+                .row.time-slider.collapse
+                  .small-12-columns
+                    .scale-chart(data-position="0.5")
+                      .scale-chart--inner
+                  .small-6.columns Immediate
+                  .small-6.columns.text-right Months
+                p
+                  strong Typical time to implement
+                ul
+                  li Implement HTML page: 4 hours
+              .medium-4.columns
+                h5.breakdown--table--title Required skills
+                .row.time-slider.collapse
+                  .small-12-columns
+                    .scale-chart(data-position="0.5")
+                      .scale-chart--inner
+                  .small-6.columns Just me
+                  .small-6.columns.text-right Many others
+                p
+                  strong I.T.
+                ul
+                  li Implement HTML page
+                p
+                  strong Blackboard admin
+                ul
+                  li Create module on course home page
+              .medium-4.columns
+                h5.breakdown--table--title Reach
+                .row.time-slider.collapse
+                  .small-12-columns
+                    .scale-chart(data-position="0.5")
+                      .scale-chart--inner
+                  .small-6.columns Single section
+                  .small-6.columns.text-right Entire program
+                p
+                  strong Systems impacted
+                  ul
+                    li Blackboard
+                p
+                  //- strong Required Technology
+                //- ul
+                  li Enable date management in the course
+                  li Use Blackboard Grade Center
+                  li Have a hosting solution for web files (HTML, CSS, JavaScript),
+                    could be within Blackboard file structure
+        .row.collapse
+          .medium-6.columns
+            a(href='examples/change-management/index.'+locals.ext target="_blank" rel="noopener").callout.dark-callout
+              p
+                strong Change management preview
+              p
+                span.icon-link
+                  i.fa.fa-external-link(aria-hidden='true')
+                  | &nbsp;
+                  span Change management example
+
+        .wysiwyg.wysiwyg__section: h4 Steps to implement with Blackboard
+        ol
+          li
+            p
+              strong Implement HTML file (on Blackboard server)
+              br
+              a.icon-link(href='#')
+                span Download HTML file
+                | &nbsp;
+                i.fa.fa-arrow-down(aria-hidden='true')
+            br(clear='all')
+          li
+            p
+              strong Create module on course home page
+            br(clear='all')
+          li
+            p
+              strong Link module to HTML page
+              br
+              a(href='#contact') Contact Karla Crowther for more information
+            br(clear='all')
+
+        .wysiwyg.wysiwyg__section
+          h4#resources Resources
+          p.subheading The following resources were created to support the progress dashboard:
+        .row.no-indent
+          //-.medium-6.columns
+            a(href='#').callout.dark-callout
+              p: strong Blackboard Building Block
+              p
+                span.icon-link
+                  i.fa.fa-download(aria-hidden='true')
+                  | &nbsp;
+                  span Download code and guide (500 KB)
+          //-.medium-6.columns
+            a(href='#').callout.dark-callout
+              p: strong Front-end web files (HTML, CSS and JavaScript)
+              p
+                span.icon-link
+                  i.fa.fa-download(aria-hidden='true')
+                  | &nbsp;
+                  span Download code and guide (500 KB)
+          //-.medium-6.columns
+            a(href='#').callout.dark-callout
+              p: strong Faculty guide
+              p
+                span.icon-link
+                  i.fa.fa-download(aria-hidden='true')
+                  | &nbsp;
+                  span Download code and guide (500 KB)
+          .medium-6.columns.end
+            a(href='#').callout.dark-callout
+              p: strong Change management page
+              p
+                span.icon-link
+                  i.fa.fa-download(aria-hidden='true')
+                  | &nbsp;
+                  span Download HTML file (500 KB)
+        .wysiwyg.wysiwyg__section: h4#contact For more information
+        .row.no-indent
+          .medium-6.columns
+            h6 General inquiries
+            .callout.dark-callout.dark-callout__with-img
+              img.u-rounded-img.dark-callout--img(src='assets/img/Erich-LinkedIn.jpg')
+              div Erich Hochmeister
+              a(href='mailto:erich.hochmeister@laureate.net') erich.hochmeister@laureate.net
+          .medium-6.columns
+            h6 Technical inquiries
+            .callout.dark-callout.dark-callout__with-img
+              img.u-rounded-img.dark-callout--img(src='assets/img/Karla-LinkedIn.jpg')
+              div Karla Crowther
+              a(href='mailto:karla.crowther@laureate.net') karla.crowther@laureate.net
+
+        br
+        br
+        include includes/interests.pug
+
+  section.related
+    .container
+      h1.text-center Related solutions
+      .row.collapse
+        .medium-12.columns
+          section.category.category__standalone
+            .row
+              .medium-6.columns
+                include includes/callout-ux-framework.pug
+              .medium-6.columns
+                include includes/callout-intro-emails.pug
+            .row
+              .medium-6.columns
+                include includes/callout-private-communities.pug
+              .medium-6.columns.end
+                include includes/callout-calendaring.pug
+      a.nav(href='index.'+locals.ext)
+        i.fa.fa-arrow-left(aria-hidden='true')
+        span All solutions

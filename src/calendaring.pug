@@ -1,0 +1,193 @@
+extends templates/layout.pug
+
+block variables
+  //- Setting body_class changes the overall color of the page
+  //- body_class options: 'category-support', 'category-experience', 'category-understand', 'category-start'
+  - var body_class = 'category-support theme__understand'
+
+block title
+  title Course calendar
+
+block sub-page-content
+  .row.heading
+    .medium-8.columns.medium-centered.text-center.white
+      h6 Meet users where they are
+      h1 Course calendar
+
+  section.container
+    .category.category__padded
+      figure
+        img(src='assets/img/screenshots/Top-Calendaring@2x.png')
+      p.copy.copy__large A course calendar helps students quickly and easily see their online learning responsibilities and understand them in the context of the rest of their life.
+      blockquote Students were more aware of due dates. No students submitted anything late in this course, which is unusual for this particular course. Students were more aware of time in general.
+      .copy.copy__citation
+        p
+          | Instructor
+          br
+          | Walden University
+
+  section.bar-section
+    .bar-section--header
+      .container
+        h3.bar-section--header--text.text-center Process overview
+    .container
+      .category.category__padded.category__post-header
+        .wysiwyg
+          h4 Considerations for implementation
+          p The purpose of the course calendar is to make it as easy as possible for students to understand important course dates, like assignment due dates, quiz or test dates, and class progress milestones.
+          p We recommend using real days and dates, not relative ones&mdash;it may take a few minutes to update each term, but the value for students is tremendous and well worth the effort.
+          p Helpful features include allowing students to control how their view their course calendars; for example, the ability to see all classes for the current term in one calendar view. We also found it helpful to allow them to filter the calendar view and look at just one or two classes at a time.  Use color or visual differentiation to help visually identify the balance across classes.
+          h4 Additional considerations
+          ul
+            li Sync to calendar for easy integration into life schedule
+            li Notifications
+            li Iconography
+            li Clearly communicate the value and benefits of this solution, as it can really help students balance their classwork with the rest of their busy lives.
+          //- h4 Recommended processes
+          //- ul
+            li Faculty and student onboarding
+            li Feedback interviews or survey
+
+  section.bar-section
+    .bar-section--header
+      .container
+        h3.bar-section--header--text.text-center Early implementation case study
+    .container
+      .category.category__padded.category__post-header
+        .wysiwyg
+          h4 Institutional requirements
+          p The institution was using Blackboard, but Blackboard Calendar wasn't enabled. Instead they used relative dates, which is easier on the back end but makes it more difficult for the student to calculate actual due dates.
+          h4 Complexity
+        .breakdown
+          h5.breakdown--title Medium
+          p.breakdown--subtitle
+            em Based on time, required skills and reach.
+          .breakdown--table
+            .row.no-indent
+              .medium-4.columns
+                h5.breakdown--table--title Time
+                .row.time-slider.collapse
+                  .small-12-columns
+                    .scale-chart(data-position="0.5")
+                      .scale-chart--inner
+                  .small-6.columns Immediate
+                  .small-6.columns.text-right Months
+                p
+                  strong Typical time to implement
+                ul
+                  li Building block implementation: 4 hours (once per Blackboard installation)
+                  li Progress dashboard creation: 8 hours per section
+              .medium-4.columns
+                h5.breakdown--table--title Required skills
+                .row.time-slider.collapse
+                  .small-12-columns
+                    .scale-chart(data-position="1.0")
+                      .scale-chart--inner
+                  .small-6.columns Just me
+                  .small-6.columns.text-right Many others
+                p
+                  strong I.T.
+                ul
+                  li Implement ?
+                p
+                  strong Blackboard admin
+                ul
+                  li Enable Blackboard Calendar (?-this is default)
+              .medium-4.columns
+                h5.breakdown--table--title Reach
+                .row.time-slider.collapse
+                  .small-12-columns
+                    .scale-chart(data-position="0.5")
+                      .scale-chart--inner
+                  .small-6.columns Single section
+                  .small-6.columns.text-right Entire program
+                p
+                  strong Systems impacted
+                  ul
+                    li Blackboard
+                p
+                  strong Required technology
+                ul
+                  li Discreet due dates must be available for learning objects
+        //- .row.collapse
+          .medium-6.columns
+            a(href='/examples/progress-tracker').callout.dark-callout
+              p
+                strong Progress dashboard preview
+              p
+                span.icon-link
+                  i.fa.fa-external-link(aria-hidden='true')
+                  | &nbsp;
+                  span Progress Tracker Example Course
+
+        .wysiwyg.wysiwyg__section: h4 Steps to implement with Blackboard
+        ol
+          li
+            p: strong Enable (or confirm) Blackboard Calendar functionality
+            br(clear='all')
+          li
+            p
+              strong Enter real dates for course syllabus milestones (i.e., assessment due dates)
+            br(clear='all')
+          li
+            p
+              strong Onboard students and faculty about Calendar and helpful functionality (i.e., syncing with personal calendar)
+            br(clear='all')
+
+
+        .wysiwyg.wysiwyg__section
+          h4#resources Resources
+          p.subheading The following resources were created to support the course calendar:
+        .row.no-indent
+          .medium-6.columns
+            a(href='#').callout.dark-callout
+              p: strong Calendar change management
+              p
+                span.icon-link
+                  i.fa.fa-download(aria-hidden='true')
+                  | &nbsp;
+                  span Download HTML file (500 KB)
+          .medium-6.columns.end
+            a(href='#').callout.dark-callout
+              p: strong Feedback survey and user interview questions
+              p
+                span.icon-link
+                  i.fa.fa-download(aria-hidden='true')
+                  | &nbsp;
+                  span Download code and guide (500 KB)
+        .wysiwyg.wysiwyg__section: h4#contact For more information
+        .row.no-indent
+          .medium-6.columns
+            h6 General inquiries
+            .callout.dark-callout.dark-callout__with-img
+              img.u-rounded-img.dark-callout--img(src='assets/img/Erich-LinkedIn.jpg')
+              div Erich Hochmeister
+              a(href='mailto:erich.hochmeister@laureate.net') erich.hochmeister@laureate.net
+          .medium-6.columns
+            h6 Technical inquiries
+            .callout.dark-callout.dark-callout__with-img
+              img.u-rounded-img.dark-callout--img(src='assets/img/Karla-LinkedIn.jpg')
+              div Karla Crowther
+              a(href='mailto:karla.crowther@laureate.net') karla.crowther@laureate.net
+
+        br
+        br
+        include includes/interests.pug
+
+  section.related
+    .container
+      h1.text-center Related solutions
+      .row.collapse
+        .medium-12.columns
+          section.category.category__standalone
+            .row
+              .medium-6.columns
+                include includes/callout-ux-framework.pug
+              .medium-6.columns
+                include includes/callout-blackboard-rubrics.pug
+            .row
+              .medium-6.columns.end
+                include includes/callout-change-management.pug
+      a.nav(href='index.'+locals.ext)
+        i.fa.fa-arrow-left(aria-hidden='true')
+        span All solutions

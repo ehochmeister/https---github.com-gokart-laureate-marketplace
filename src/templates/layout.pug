@@ -1,0 +1,40 @@
+block variables
+
+mixin arrow(url)
+  span(href=url).arrow
+    svg(width='13', height='14', viewbox='30 24 13 14', xmlns='http://www.w3.org/2000/svg')
+      g(fill='none', fill-rule='evenodd', stroke-linecap='round', stroke='#FFF', stroke-width='2')
+        path(d='M31.455 31h9.09M36.5 26l5 5M36.5 36l5-5')
+
+
+doctype html
+html(lang='en' style='display:none')
+  head
+    meta(charset="utf-8")
+    block title
+      title Default title
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='robots' content='noindex, nofollow')
+    script(src='https://use.typekit.net/vbg7kfo.js')
+    script.
+      try{Typekit.load({ async: true });}catch(e){}
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.4/foundation.min.js')
+    script(type='text/javascript' src='assets/bundle.js')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css', integrity='sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=', crossorigin='anonymous')
+
+  body(class=(body_class || 'default'))
+    header(data-sticky-container='')
+      .title(data-sticky='', data-sticky-on='medium', data-options='marginTop:0;')
+        a.title-bar(href="index."+locals.ext)
+          .title-bar-logo: img(src='assets/img/laureate-logo.svg')
+          .title-bar-text
+            i.fa.fa-arrow-left
+            = " Classroom Solutions"
+    main
+      .row.collapse
+        .medium-12.columns
+          block content
+
+    .sub-page-content
+      block sub-page-content

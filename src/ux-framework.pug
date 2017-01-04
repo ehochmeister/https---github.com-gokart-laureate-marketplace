@@ -1,0 +1,233 @@
+extends templates/layout.pug
+
+block variables
+  //- Setting body_class changes the overall color of the page
+  //- body_class options: 'category-support', 'category-experience', 'category-understand', 'category-start'
+  - var body_class = 'category-support theme__experience'
+
+block title
+  title UX framework
+
+block sub-page-content
+  .row.heading
+    .medium-8.columns.medium-centered.text-center.white
+      h6 Remove friction for a great online experience
+      h1 UX framework
+
+  section.container
+    .category.category__padded
+      figure
+        img(src='assets/img/screenshots/Top-UX-framework@2x.png')
+      p.copy.copy__large The UX framework is designed to guide students through their online coursework. It provides students a modern, responsive digital courseroom with clear navigation and organization of learning materials.
+      blockquote I loved the visual presentation, and feel the fluid pedagogical continuity between the weeks worked well.
+      .copy.copy__citation
+        p
+          | Instructor
+          br
+          | University of Roehampton, London
+
+  section.bar-section
+    .bar-section--header
+      .container
+        h3.bar-section--header--text.text-center Process overview
+    .container
+      .category.category__padded.category__post-header
+        .wysiwyg
+          h4 Considerations for implementation
+          p The purpose of the UX framework is to provide a modern, clean, responsive digital courseroom with navigation designed to guide students through their course material from week to week. The current user experience framework is a hybrid approach that retains key Blackboard functionality while creating a more modern learning environment for students. By presenting an independent course page and linking back to Blackboard as needed, our courses become richer and more immersive. This solution allows institutions to continue to use the SIS and gradebook they&rsquo;re familiar with, while updating the experience where students spend the most time&mdash;in their weekly content experience.
+          p Navigation is accomplished through 1) a slide out menu containing links to weeks and modules, links to Blackboard, and links to support; as well as 2) header navigation, which provides jump links to content throughout the current page.
+          p Each course contains introductory and overview pages, meant to provide clarity and visibility to key information about the course, including a Course Intro, Course Overview, Faculty Bio, Calendar, Syllabus, and Rubric.
+          p The bulk of the experience centers on content pages (so assessments can remain in Blackboard, linked to SIS and taking advantage of Grade Center). These pages include, for each week or module of the course, an Intro, Week at a Glance, Learning Resources, Assignments/Collaboration/Quizzes, and Week in Review.
+          h4 Additional considerations
+          p The same framework can be utilized by multiple institutions, as there are several key components that provide an opportunity for styling and differentiation. For example, the content available (interactives vs long form text) will have a big impact on how rich the experience feels to the students. Your resources available can determine elements of the experience as well, like whether there are color blocks or images used for section headers. And, your institution's logo, colors, and font can be customized to create a branded look and feel.
+          //- h4 Recommended processes
+          //- ul
+            li Faculty and student onboarding
+            li Feedback interviews or survey
+
+  section.bar-section
+    .bar-section--header
+      .container
+        h3.bar-section--header--text.text-center Early implementation case study
+    .container
+      .category.category__padded.category__post-header
+        .wysiwyg
+          h4 Institutional requirements
+          p Our goal was to bring online learning to life in a way that provided students with a modern and guided content experience, while still leveraging the assessment and SIS capabilities of existing Blackboard implementations.
+          h4 Complexity
+        .breakdown
+          h5.breakdown--title High
+          p.breakdown--subtitle
+            em Based on time, required skills and reach.
+          .breakdown--table
+            .row.no-indent
+              .medium-4.columns
+                h5.breakdown--table--title Time
+                .row.time-slider.collapse
+                  .small-12-columns
+                    .scale-chart(data-position="1.0")
+                      .scale-chart--inner
+                  .small-6.columns Immediate
+                  .small-6.columns.text-right Months
+                p
+                  strong Typical time to implement
+                ul
+                  li Organize content by week/module: 1 week
+                  li Implement front-end web package: 4 hours + QA
+                  li Modify Blackboard navigation: 4 hours + QA
+                  li Enter course content: 24 hours + QA
+              .medium-4.columns
+                h5.breakdown--table--title Required Skills
+                .row.time-slider.collapse
+                  .small-12-columns
+                    .scale-chart(data-position="1.0")
+                      .scale-chart--inner
+                  .small-6.columns Just me
+                  .small-6.columns.text-right Many others
+                p
+                strong Instructional design
+                ul
+                  li Construct content into week/module
+                p
+                  strong I.T.
+                ul
+                  li Implement and edit front-end web package
+                p
+                  strong Blackboard admin
+                ul
+                  li Add or edit Blackboard navigation to include links
+
+              .medium-4.columns
+                h5.breakdown--table--title Reach
+                .row.time-slider.collapse
+                  .small-12-columns
+                    .scale-chart(data-position="0.5")
+                      .scale-chart--inner
+                  .small-6.columns Single section
+                  .small-6.columns.text-right Entire program
+                p
+                  strong Systems impacted
+                  ul
+                    li Blackboard
+                p
+                  strong Required technology
+                ul
+                  li Must have deep linking enabled to Blackboard
+                  li HTML hosting solution (could be within Blackboard file structure)
+
+        .row.collapse
+          .medium-6.columns
+            a(href='examples/ux-framework/index.'+locals.ext target="_blank" rel="noopener").callout.dark-callout
+              p
+                strong UX framework preview
+              p
+                span.icon-link
+                  i.fa.fa-external-link(aria-hidden='true')
+                  | &nbsp;
+                  span UX framework example
+
+        .wysiwyg.wysiwyg__section: h4 Steps to implement with Blackboard
+        ol
+          li
+            p: strong Identify course and section
+            br(clear='all')
+          li
+            p
+              strong Convert or create course content into week/module
+              br
+              a.icon-link(href='#contact')
+                span Contact Karla Crowther for more information
+            br(clear='all')
+          li
+            p
+              strong Implement classroom HTML
+              br
+              a.icon-link(href='#')
+                span Download classroom HTML file
+                | &nbsp;
+                i.fa.fa-arrow-down(aria-hidden='true')
+            br(clear='all')
+          li
+            p
+              strong Enable deep linking
+              br
+              a.icon-link(href='#contact')
+                span Contact Karla Crowther for more information
+                br(clear='all')
+          li
+            p
+              strong Edit Blackboard navigation
+            br(clear='all')
+
+        .wysiwyg.wysiwyg__section
+          h4#resources Resources
+          p.subheading The following resources were created to support the UX framework:
+        .row.no-indent
+          .medium-6.columns
+            a(href='#').callout.dark-callout
+              p: strong New classroom change management
+              p
+                span.icon-link
+                  i.fa.fa-download(aria-hidden='true')
+                  | &nbsp;
+                  span Download HTML file (500 KB)
+          .medium-6.columns
+            a(href='#').callout.dark-callout
+              p: strong Course conversion software (Jason&rsquo;s)
+              p
+                span.icon-link
+                  i.fa.fa-download(aria-hidden='true')
+                  | &nbsp;
+                  span Download code (500 KB)
+          .medium-6.columns
+            a(href='#').callout.dark-callout
+              p: strong Classroom HTML
+              p
+                span.icon-link
+                  i.fa.fa-download(aria-hidden='true')
+                  | &nbsp;
+                  span Download HTML file (500 KB)
+          .medium-6.columns.end
+            a(href='#').callout.dark-callout
+              p: strong Deep link .js magic (Jason&rsquo;s)
+              p
+                span.icon-link
+                  i.fa.fa-download(aria-hidden='true')
+                  | &nbsp;
+                  span Download code (500 KB)
+        .wysiwyg.wysiwyg__section: h4#contact For more information
+        .row.no-indent
+          .medium-6.columns
+            h6 General inquiries
+            .callout.dark-callout.dark-callout__with-img
+              img.u-rounded-img.dark-callout--img(src='assets/img/Erich-LinkedIn.jpg')
+              div Erich Hochmeister
+              a(href='mailto:erich.hochmeister@laureate.net') erich.hochmeister@laureate.net
+          .medium-6.columns
+            h6 Technical inquiries
+            .callout.dark-callout.dark-callout__with-img
+              img.u-rounded-img.dark-callout--img(src='assets/img/Karla-LinkedIn.jpg')
+              div Karla Crowther
+              a(href='mailto:karla.crowther@laureate.net') karla.crowther@laureate.net
+
+        br
+        br
+        include includes/interests.pug
+
+  section.related
+    .container
+      h1.text-center Related solutions
+      .row.collapse
+        .medium-12.columns
+          section.category.category__standalone
+            .row
+              .medium-6.columns
+                include includes/callout-calendaring.pug
+              .medium-6.columns
+                include includes/callout-change-management.pug
+            .row
+              .medium-6.columns.end
+                include includes/callout-course-progress-tracker.pug
+      a.nav(href='index.'+locals.ext)
+        i.fa.fa-arrow-left(aria-hidden='true')
+        span All solutions

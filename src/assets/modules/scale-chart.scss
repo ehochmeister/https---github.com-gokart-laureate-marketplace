@@ -1,0 +1,21 @@
+.scale-chart {
+  width: 100%;
+  height: 11px;
+  position: relative;
+  background: #f2f2f2;
+  background: -moz-linear-gradient(left,  #f2f2f2 0%, #d9d9d9 100%);
+  background: -webkit-linear-gradient(left,  #f2f2f2 0%,#d9d9d9 100%);
+  background: linear-gradient(to right,  #f2f2f2 0%,#d9d9d9 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f2f2', endColorstr='#d9d9d9',GradientType=1 );
+
+  &--inner {
+    position: absolute;
+    top: -7px;
+    width: 4px;
+    height: 11px;
+    border-bottom: 7px solid #ffffff;
+    background: #15306E;
+    box-sizing: content-box;
+    margin-left: -2px;
+  }
+}
